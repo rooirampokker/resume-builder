@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import TabContainer from './containers/TabContainer';
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+
+import ContentContainer from './containers/ContentContainer';
 import Resume from './data/Resume.js';
 
 class App extends Component {
@@ -12,27 +14,37 @@ class App extends Component {
 
         }
     }
+    camelize(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+            return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+
     render() {
-        const Tabs = Object.keys(Resume).map((d, key) => {
-          if (key != 0) {
+        const tabs = Object.keys(Resume).map((sectionName, key) => {
+          let sectionID = this.camelize(sectionName);
+          if (key !== 0) {
               return (
-                  <TabContainer
-                      active=""
-                      tabId={d}
-                      tabLable={d}
-                      key={d}
-                  />
+                  <Tab
+                      title={sectionName}
+                      eventKey={sectionID}>
+                          <ContentContainer
+                              id             ={sectionID}
+                              key            ={sectionID}
+                              content        ={sectionName}
+                          />
+                  </Tab>
               )
-          }
+          } else return false;
         });
 
         return (
-            <React.Fragment>
+            <>
                <legend>{Resume.heading}</legend>
-               <ul className="nav nav-tabs" id="myTab" role="tablist">
-                    {Tabs}
-               </ul>
-            </React.Fragment>
+               <Tabs defaultActiveKey="home" transition={false} id="noanim-tab-example">
+                        {tabs}
+               </Tabs>
+            </>
         );
     }
 }
