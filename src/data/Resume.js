@@ -1,13 +1,13 @@
 const Resume = {
     "heading": "Resume of Leslie Albrecht",
-    "personalDetails": {
+    "Personal Details": {
         "firstName": "Leslie",
         "lastName": "Albrecht",
         "phoneNumber": "+27827112573",
         "github": "https://github.com/rooirampokker",
         "location": "Randburg, Gauteng"
     },
-    "skillsMatrix": {
+    "Skills Matrix": {
         "current": {
             "extensive": [
                 "PHP 4 & 5 (+10 years experience)",
@@ -50,7 +50,7 @@ const Resume = {
             "limited": []
         }
     },
-    "education": [
+    "Education": [
         {
             "name": "ZCE (Zend Certified Engineer)",
             "dateAchieved": "04/2006",
@@ -91,7 +91,7 @@ const Resume = {
             ]
         }
     ],
-    "workExperience": [
+    "Work Experience": [
         {
             "organisation": "Kantar Millward Brown",
             "role": "Full Stack Engineer",
