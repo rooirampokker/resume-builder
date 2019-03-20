@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import Utils from './utils/utils';
 
-import ContentContainer from './containers/ContentContainer';
+import PersonalDetailsContainer from './containers/PersonalDetailsContainer';
 import Resume from './data/Resume.js';
 
 class App extends Component {
@@ -14,24 +15,20 @@ class App extends Component {
 
         }
     }
-    camelize(str) {
-        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
-            return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
-        }).replace(/\s+/g, '');
-    }
 
     render() {
         const tabs = Object.keys(Resume).map((sectionName, key) => {
-          let sectionID = this.camelize(sectionName);
+          let sectionID = Utils.camelize(sectionName);
           if (key !== 0) {
               return (
                   <Tab
-                      title={sectionName}
-                      eventKey={sectionID}>
-                          <ContentContainer
+                      title   ={sectionName}
+                      eventKey={sectionID}
+                      key     ={"tab-"+sectionID}>
+                          <PersonalDetailsContainer
                               id             ={sectionID}
-                              key            ={sectionID}
-                              content        ={sectionName}
+                              key            ={"content-"+sectionID}
+                              {...Resume[sectionName]}
                           />
                   </Tab>
               )
