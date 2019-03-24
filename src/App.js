@@ -3,9 +3,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import Utils from './utils/utils';
 
-import PersonalDetailsContainer from './containers/PersonalDetailsContainer';
+import Utils from './utils/Utils';
+import Content from './containers/Content';
+import PersonalDetails from './containers/PersonalDetails';
+import Education from './containers/Education';
+import SkillsMatrix from './containers/SkillsMatrix';
+import WorkExperience from './containers/WorkExperience';
+
 import Resume from './data/Resume.js';
 
 class App extends Component {
@@ -14,25 +19,38 @@ class App extends Component {
         this.state = {
 
         }
+        this.utils = new Utils();
     }
+
+    components = {
+        personalDetails: PersonalDetails,
+        education: Education,
+        skillsMatrix: SkillsMatrix,
+        workExperience:WorkExperience
+    };
+
+
 
     render() {
         const tabs = Object.keys(Resume).map((sectionName, key) => {
-          let sectionID = Utils.camelize(sectionName);
-          if (key !== 0) {
-              return (
-                  <Tab
-                      title   ={sectionName}
-                      eventKey={sectionID}
-                      key     ={"tab-"+sectionID}>
-                          <PersonalDetailsContainer
-                              id             ={sectionID}
-                              key            ={"content-"+sectionID}
-                              {...Resume[sectionName]}
-                          />
-                  </Tab>
-              )
-          } else return false;
+              const sectionID = this.utils.camelize(sectionName);
+              let TabContent = '';
+              if (key !== 0) {
+                  TabContent = this.components[sectionID];
+                  return (
+                          <Tab
+                              title   ={sectionName}
+                              eventKey={sectionID}
+                              key     ={"tab-"+sectionID}>
+
+                                <TabContent
+                                      key = {sectionName}
+                                      id  = {sectionID}
+                                      details = {JSON.stringify(Resume[sectionName])}/>
+                          </Tab>
+
+                  )
+              } else return false;
         });
 
         return (
