@@ -46,7 +46,7 @@ class App extends Component {
                                 <TabContent
                                       key = {sectionName}
                                       id  = {sectionID}
-                                      details = {JSON.stringify(Resume[sectionName])}/>
+                                      details = {Resume[sectionName]}/>
                           </Tab>
 
                   )

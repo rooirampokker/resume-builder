@@ -8,7 +8,7 @@ const Content = (props) => {
                     {value}
                 </div>
             )
-        }
+        } else return '';
     });
     return(
         <>

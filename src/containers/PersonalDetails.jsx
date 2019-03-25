@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 
 const PersonalDetails = (props) => {
-    const details = Object.keys(props).map((value, key) => {
-    if (value !== 'key' && value !== 'id') {
-        return(
-            <div className='textLabel'>
-                {value}
-            </div>
-        )
-    }
+    const details = Object.keys(props.details).map((value, key) => {
+        if (value !== 'key' && value !== 'id') {
+            return(
+                <div className="row">
+                    <div className='textLabel col-2'>
+                        {value}
+                    </div>
+                    <div className='textValue col'>
+                        {props.details[value]}
+                    </div>
+                </div>
+            )
+        } else return '';
     });
     return(
-        <>
-            <div
-                className="tab-content"
-                id={"nav-" + props.id}>
-                {props.details}
+            <div className="container">
+                {details}
             </div>
-        </>
     )
 }
 
