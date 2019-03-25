@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 const PersonalDetails = (props) => {
     const details = Object.keys(props.details).map((value, key) => {
-        if (value !== 'key' && value !== 'id') {
             return(
-                <div className="row">
-                    <div className='textLabel col-2'>
+                <div className="row"
+                     key={"personalDetailsContent-"+key}>
+                    <div className='textLabel col-3'>
                         {value}
                     </div>
                     <div className='textValue col'>
@@ -13,7 +13,6 @@ const PersonalDetails = (props) => {
                     </div>
                 </div>
             )
-        } else return '';
     });
     return(
             <div className="container">

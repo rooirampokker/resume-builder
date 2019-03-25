@@ -1,11 +1,11 @@
 const Resume = {
     "heading": "Resume of Leslie Albrecht",
     "Personal Details": {
-        "firstName": "Leslie",
-        "lastName": "Albrecht",
-        "phoneNumber": "+27827112573",
-        "github": "https://github.com/rooirampokker",
-        "location": "Randburg, Gauteng"
+        "First Name": "Leslie",
+        "Last Name": "Albrecht",
+        "Phone Number": "+27827112573",
+        "Github": "https://github.com/rooirampokker",
+        "Location": "Randburg, Gauteng"
     },
     "Skills Matrix": {
         "current": {
@@ -249,8 +249,8 @@ const Resume = {
                 "DBDesigner"
             ],
             "reasonToLeave": "Needed a company that would allow me to grow professionally"
-        }
-    ]
+        },
+    ],
 }
 
 export default Resume;

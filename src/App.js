@@ -24,9 +24,10 @@ class App extends Component {
 
     components = {
         personalDetails: PersonalDetails,
-        education: Education,
-        skillsMatrix: SkillsMatrix,
-        workExperience:WorkExperience
+        education:       Education,
+        skillsMatrix:    SkillsMatrix,
+        workExperience:  WorkExperience,
+        content:         Content
     };
 
 
@@ -36,7 +37,8 @@ class App extends Component {
               const sectionID = this.utils.camelize(sectionName);
               let TabContent = '';
               if (key !== 0) {
-                  TabContent = this.components[sectionID];
+                  //Output to default 'Content' component if there's no explicit component already created - allows for easy addition of new sections to a default component
+                  TabContent = (this.components[sectionID] !== undefined) ? this.components[sectionID] : this.components.content;
                   return (
                           <Tab
                               title   ={sectionName}

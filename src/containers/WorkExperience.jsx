@@ -4,7 +4,8 @@ const WorkExperience = (props) => {
     const details = Object.keys(props.details).map((value, key) => {
         if (value !== 'key' && value !== 'id') {
             return(
-                <div className='textLabel'>
+                <div className='textLabel'
+                     key={"workExperienceContent-"+key}>
                     {value}
                 </div>
             )
