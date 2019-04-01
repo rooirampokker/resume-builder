@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
@@ -36,6 +36,7 @@ class App extends Component {
         const tabs = Object.keys(Resume).map((sectionName, key) => {
               const sectionID = this.utils.camelize(sectionName);
               let TabContent = '';
+              console.log(TabContent);
               if (key !== 0) {
                   //Output to default 'Content' component if there's no explicit component already created - allows for easy addition of new sections to a default component
                   TabContent = (this.components[sectionID] !== undefined) ? this.components[sectionID] : this.components.content;
@@ -48,7 +49,9 @@ class App extends Component {
                                 <TabContent
                                       key = {sectionName}
                                       id  = {sectionID}
-                                      details = {Resume[sectionName]}/>
+                                      details = {Resume[sectionName]}
+                                      resume  = {Resume}
+                                />
                           </Tab>
 
                   )

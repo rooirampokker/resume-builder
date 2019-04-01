@@ -8,46 +8,73 @@ const Resume = {
         "Location": "Randburg, Gauteng"
     },
     "Skills Matrix": {
-        "current": {
-            "extensive": [
-                "PHP 4 & 5 (+10 years experience)",
-                "MySQL/MariaDB (+10 years experience)",
-                "Javascript (+10 years experience)",
-                "AJAX (+5 year experience)",
-                "Javascript framework libraries (+5 years experience)",
-                "Bootstrap (5 years experience)",
-                "Foundation (3 years experience)",
-                "Wordpress (+5 years experience)",
-                "SugarCRM/SuiteCRM (3 years experience)",
-                "Hardware/Software installation, maintenance and similar A+ tasks",
-                "Project management and collaboration tools",
-                "Version Control Systems & collaborative development methodologies"
-            ],
-            "solid": [
-                "Agile/Scrum/Waterfall, unit testing, QA process-flow, project management, business analysis",
-                "PostGreSQL (2 years experience)",
-                "Linux (CentOS) (+5 years experience)",
-                "Ruby on Rails (2 years experience)",
-                "Test driven development",
-                "Dev Ops, Cloud Computing, Continuous Integration & Application Deployment systems"
-            ],
-            "limited": [
-                "Networking & system assembly",
-                "Perl",
-                "ASP.NET",
-                "C#",
-                "MS SQL Server 2013",
-                "Laravel",
-                "CakePHP",
-                "React",
-                "Angular",
-                "NodeJS"
-            ]
+        "Back-End": {
+            "PHP": 4,
+            "Laravel 2+": 2,
+            "SQL": 4,
+            "Ruby on Rails": 3,
+            "Perl": 3,
+            "Node/Express": 2,
+            "Sequelize": 2,
+            "Bookshelf/Knex": 2,
+            "ASP.NET using C# and Visual Studio": 2,
+            "C/C++": 1,
         },
-        "previous": {
-            "extensive": [],
-            "solid": [],
-            "limited": []
+        "Front-End": {
+            "HTML 5, CSS, ES5": 4,
+            "ES6": 3,
+            "Twitter Bootstrap": 4,
+            "Foundation": 3,
+            "Underscore/Lodash": 3,
+            "Highcharts": 4,
+            "JQuery": 4,
+            "React": 3,
+            "Angular": 1,
+        },
+        "Dev-Ops": {
+            "Heroku": 3,
+            "AWS: EC2": 3,
+            "AWS: S3": 3,
+            "AWS: CodeDeploy": 3,
+            "AWS: RDS": 3,
+            "AWS: CloudWatch": 3,
+            "Linux (Assorted Debian & Redhat Distros": 4,
+            "CodeClimate": 2,
+            "Travis": 2,
+            "CircleCI": 2,
+            "Git/GitHub/SVN/CVS": 4,
+            "Docker": 3,
+        },
+        "DBMS": {
+            "MySQL": 4,
+            "PostgreSQL": 3,
+            "MS SQL Server 2005": 2
+        },
+        "CRM/CMS": {
+            "Wordpress": 5,
+            "Joomla!": 3,
+            "Drupal": 3,
+            "SugarCRM/SuiteCRM": 4,
+        },
+        "Methodologies": {
+            "Waterfall": 4,
+            "Agile/SCRUM": 4,
+            "Rapid Application Development": 3,
+            "Prototyping": 3,
+        },
+        "Tools and Applications": {
+            "PHP Designer": 4,
+            "Submlime Text/Atom/Notepad++": 4,
+            "Jira (Setup, administration and use)": 4,
+            "PHPStorm": 3,
+            "RubyMine": 3,
+            "Slack": 3,
+            "Microsoft Teams": 3,
+            "Trello": 4,
+            "Putty and WinSCP": 4,
+            "Netbeans": 2,
+            "Oracle VirtualBox": 4,
+
         }
     },
     "Education": [

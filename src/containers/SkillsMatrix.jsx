@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 
 const SkillsMatrix = (props) => {
     const details = Object.keys(props.details).map((value, key) => {
-        if (value !== 'key' && value !== 'id') {
-            return(
-                <div className='textLabel'
-                     key={"skillsMatrixContent-"+key}>
-                    {value}
-                </div>
+    let   subDetailsObj = props.details[value]
+    let   subDetails = Object.keys(subDetailsObj).map((subValue, subKey) => {
+            let subContent = subDetailsObj[subValue];
+            return (
+                    <>
+                        <div className='textValue col-6'>
+                            {subValue}
+                        </div>
+                        <div className='textValue col-6'>
+                            {subContent}
+                        </div>
+                    </>
             )
-        } else return '';
+        });
+        return (
+            <div className="row"
+                 key={"skillsMatrixContent-" + key}>
+                <div className="textValue col-12">
+                    <b>{value}</b>
+                </div>
+                {subDetails}
+
+            </div>
+        );
     });
     return(
         <>
