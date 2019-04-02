@@ -10,71 +10,72 @@ const Resume = {
     "Skills Matrix": {
         "Back-End": {
             "PHP": 4,
-            "Laravel 2+": 2,
+            //"Laravel 2+": 2,
             "SQL": 4,
+            "CakePHP": 3,
             "Ruby on Rails": 3,
             "Perl": 3,
             "Node/Express": 2,
             "Sequelize": 2,
             "Bookshelf/Knex": 2,
-            "ASP.NET using C# and Visual Studio": 2,
-            "C/C++": 1,
+            //"ASP.NET using C# and Visual Studio": 2,
+            //"C/C++": 1,
         },
         "Front-End": {
             "HTML 5, CSS, ES5": 4,
-            "ES6": 3,
             "Twitter Bootstrap": 4,
-            "Foundation": 3,
-            "Underscore/Lodash": 3,
             "Highcharts": 4,
             "JQuery": 4,
+            "ES6": 3,
+            "Foundation": 3,
+            "Underscore/Lodash": 3,
             "React": 3,
-            "Angular": 1,
+            //"Angular": 1,
         },
         "Dev-Ops": {
+            "Linux (Assorted Debian & Redhat Distros": 4,
+            "Source Control: (Git/GitHub,SVN,CVS)": 4,
+            "Webpack": 3,
             "Heroku": 3,
             "AWS: EC2": 3,
             "AWS: S3": 3,
             "AWS: CodeDeploy": 3,
             "AWS: RDS": 3,
             "AWS: CloudWatch": 3,
-            "Linux (Assorted Debian & Redhat Distros": 4,
+            "Docker": 3,
+            "Capistrano": 3,
             "CodeClimate": 2,
             "Travis": 2,
             "CircleCI": 2,
-            "Git/GitHub/SVN/CVS": 4,
-            "Docker": 3,
         },
         "DBMS": {
             "MySQL": 4,
             "PostgreSQL": 3,
-            "MS SQL Server 2005": 2
+            "MS SQL Server 2005": 2,
         },
         "CRM/CMS": {
             "Wordpress": 5,
+            "SugarCRM/SuiteCRM": 4,
             "Joomla!": 3,
             "Drupal": 3,
-            "SugarCRM/SuiteCRM": 4,
         },
         "Methodologies": {
             "Waterfall": 4,
             "Agile/SCRUM": 4,
             "Rapid Application Development": 3,
             "Prototyping": 3,
+            "Test Driven Development": 3,
         },
         "Tools and Applications": {
-            "PHP Designer": 4,
+            "Putty and WinSCP": 5,
             "Submlime Text/Atom/Notepad++": 4,
+            "RubyMine": 4,
             "Jira (Setup, administration and use)": 4,
-            "PHPStorm": 3,
-            "RubyMine": 3,
-            "Slack": 3,
-            "Microsoft Teams": 3,
             "Trello": 4,
-            "Putty and WinSCP": 4,
-            "Netbeans": 2,
             "Oracle VirtualBox": 4,
-
+            "PHPStorm": 3,
+            "Slack/MS-Teams": 3,
+            "Netbeans": 2,
         }
     },
     "Education": [
@@ -82,7 +83,7 @@ const Resume = {
             "name": "ZCE (Zend Certified Engineer)",
             "dateAchieved": "04/2006",
             "description": "Professional Qualification at CTU Training Solutions in Pretoria, South Africa (Gauteng)",
-            "subjects": []
+            "subjects": [],
         },
         {
             "name": "Computer Training Institute (CTI)",
@@ -95,14 +96,15 @@ const Resume = {
                 "Relational Database Design",
                 "Oracle PL/SQL",
                 "System analysis and design",
-                "Data processing concepts"
-            ]
+                "Data processing concepts",
+            ],
+
         },
         {
             "name": "CompTia A+",
             "dateAchieved": "10/2000",
             "description": "Certificate at IT Intellect in Durban, South Africa (KwaZulu Natal)",
-            "subjects": []
+            "subjects": [],
         },
         {
             "name": "Kokstad College",
@@ -114,48 +116,48 @@ const Resume = {
                 "Geography",
                 "Business Economics",
                 "Typing",
-                "Biology"
+                "Biology",
             ]
         }
     ],
     "Work Experience": [
         {
-            "organisation": "Kantar Millward Brown",
-            "role": "Full Stack Engineer",
-            "from": "04/2018",
-            "to": "Current",
-            "duties": [
+            "Organisation": "Kantar Millward Brown",
+            "Role": "Full Stack Engineer",
+            "From": "04/2018",
+            "To": "Current",
+            "Duties": [
                 "Maintain, debug and extend legacy survey platform.",
                 "Set up multi-user installation of Wordpress and write plugins to extend panelist recruitment platform.",
                 "Implement Google Tag Manager and Google Analytics for advanced visitor tracking and reporting on conversion of visitors to panellists.",
-                "Formulate SQL to produce and deliver accurate custom reports."
+                "Formulate SQL to produce and deliver accurate custom reports.",
             ],
-            "reasonToLeave": "Seeking new challenges & opportunities"
+            "Reason for leaving": "Seeking new challenges & opportunities",
         },
         {
-            "organisation": "Platform45",
-            "role": "Rails Developer",
-            "from": "10/2016",
-            "to": "04/2018",
-            "projects": [
+            "Organisation": "Platform45",
+            "Role": "Rails Developer",
+            "From": "10/2016",
+            "To": "04/2018",
+            "Projects": [
                 {
                     "name": "LoadX",
-                    "objective": "To be part of a small team of developers responsible for delivering a matchmaking service between Shippers and Transporters, allowing Transporters to respond to bids created by Shippers to move cargo from origin to destination."
+                    "objective": "To be part of a small team of developers responsible for delivering a matchmaking service between Shippers and Transporters, allowing Transporters to respond to bids created by Shippers to move cargo from origin to destination.",
                 },
                 {
                     "name": "MyTopDog",
-                    "objective": "To be part of a multi-national team responsible for developing a web backend for a mobile app which allows users to administer and complete checklists."
+                    "objective": "To be part of a multi-national team responsible for developing a web backend for a mobile app which allows users to administer and complete checklists.",
                 },
                 {
                     "name": "Lobster Inc",
-                    "objective": "To develop and consume an API for an education platform to deliver customized learning support for grades 4 to 12. This is supplemented by a system that provides students with remedial advice and content based on previously completed assignments while providing teachers with a dashboard containing statistics across all students and classrooms assigned to them."
+                    "objective": "To develop and consume an API for an education platform to deliver customized learning support for grades 4 to 12. This is supplemented by a system that provides students with remedial advice and content based on previously completed assignments while providing teachers with a dashboard containing statistics across all students and classrooms assigned to them.",
                 },
                 {
                     "name": "Votes for Schools",
-                    "objective": "To provide support and develop features for a React-based voting/polling and statistics system for British school system."
+                    "objective": "To provide support and develop features for a React-based voting/polling and statistics system for British school system.",
                 }
             ],
-            "techStack": [
+            "Tech Stack": [
                 "Ruby on Rails",
                 "ApiPie",
                 "ES5",
@@ -179,22 +181,22 @@ const Resume = {
                 "MariaDB",
                 "Joi",
                 "Webpack",
-                "Babel"
+                "Babel",
             ],
-            "duties": [
+            "Duties": [
                 "Maintain, debug and extend legacy survey platform.",
                 "Set up multi-user installation of Wordpress and write plugins to extend panelist recruitment platform.",
                 "Implement Google Tag Manager and Google Analytics for advanced visitor tracking and reporting on conversion of visitors to panellists.",
                 "Formulate SQL to produce and deliver accurate custom reports."
             ],
-            "reasonToLeave": "I wanted to get back to growing my PHP skillset"
+            "Reason for leaving": "I wanted to get back to growing my PHP skillset"
         },
         {
-            "organisation": "INET BFA",
-            "role": "Senior Web Developer",
-            "from": "02/2012",
-            "to": "10/2016",
-            "projects": [
+            "Organisation": "INET BFA",
+            "Role": "Senior Web Developer",
+            "From": "02/2012",
+            "To": "10/2016",
+            "Projects": [
                 {
                     "name": "INETBFA CRM Rebuild",
                     "objective": "To be the sole developer responsible for merging the old I-Net Bridge (bespoke Visual Basic application) & McgregorBFA CRM (sugarCRM) systems into a single, consolidated CRM system"
@@ -204,7 +206,7 @@ const Resume = {
                     "objective": "To develop web-based, responsive, API-driven web components that delivers JSE data as highly configurable financial instruments that can be embedded on a 3rd party website."
                 }
             ],
-            "techStack": [
+            "Tech Stack": [
                 "SuiteCRM",
                 "Wordpress",
                 "PHP 5.3",
@@ -220,21 +222,21 @@ const Resume = {
                 "MVC, ORM, REST, Active Record",
                 "Trello, TinyPM, RubyMine, TortoiseCVS, Skype"
             ],
-            "duties": [
+            "Duties": [
                 "Used Scrum/Agile techniques & tools to coordinate a distributed team of developers & contractors, testers, business analysts & client representitives throughout the whole SDLC, including requirements gathering, expectation management, development, general communication & meetings, progress updates, managing deadlines, client demonstrations, quality assurance & maintenance.",
                 "Maintain codebase and documentation & extend functionality after project delivery.",
                 "Translate stakeholder feedback & requirements into meaningful functional specifications.",
                 "Deliver high quality code according to specifications to meet deadlines.",
                 "Demonstrate progress & report back to all stakeholders during regular weekly meetings.",
             ],
-            "reasonToLeave": "Seeking new challenges & opportunities"
+            "Reason for leaving": "Seeking new challenges & opportunities"
         },
         {
-            "organisation": "Avusa/TMG",
-            "role": "Web Development Engineer",
-            "from": "10/2007",
-            "to": "02/2012",
-            "duties": [
+            "Organisation": "Avusa/TMG",
+            "Role": "Web Development Engineer",
+            "From": "10/2007",
+            "To": "02/2012",
+            "Duties": [
                 "Develop new websites, applications & services for organisations such as Sunday Times/TimesLive, Elle Magazine, SA Homeowner, Summit TV, Business Day & Sowetan.",
                 "Provide support on existing LAMP Servers (4 CentOS & 2x legacy SunOS servers).",
                 "Assist with installation, configuration and maintenance of Linux servers, including:",
@@ -244,30 +246,30 @@ const Resume = {
                 "Devise and implement multi-server migration strategies of database driven sites with minimal downtime (Wordpress, Clipshare and other custom sites).",
                 "Assist with code (Perl/HTML maintenance) and account management of UNIX based legacy systems (Solaris 5.6)."
             ],
-            "reasonToLeave": "Requested transfer to I-Net Bridge for better growth opportunities"
+            "Reason for leaving": "Requested transfer to I-Net Bridge for better growth opportunities"
         },
         {
-            "organisation": "Decisionworx",
-            "role": "PHP/LAMP Developer",
-            "from": "06/2006",
-            "to": "10/2007",
-            "duties": [
+            "Organisation": "Decisionworx",
+            "Role": "PHP/LAMP Developer",
+            "From": "06/2006",
+            "To": "10/2007",
+            "Duties": [
                 "Participate in the complete software development cycle of a CRM/CMS mashup system (ROAR) based on SugarCRM, CiviCRM, & a custom-built microsite publisher for an American non-profit organisation.",
                 "Soliciting requirements from the users, managing client expectations and matching the final agreed on requirements to deliverables and deadlines while managing subsequent maintenance schedules.",
                 "Coach the ROAR software development team for planning, tracking and completion of the work within the agreed plan, using agreed methods and processes such as version controling, standard compliance, multi-browser support & user & product documentation.",
                 "Advise on and lead the implementation of new methods, tools or processes."
             ],
-            "reasonToLeave": "Startup company lacked funding and disolved"
+            "Reason for leaving": "Startup company lacked funding and disolved"
         },
         {
-            "organisation": "Webonline",
-            "role": "Junior Web Developer",
-            "from": "04/2005",
-            "to": "06/2006",
-            "duties": [
+            "Organisation": "Webonline",
+            "Role": "Junior Web Developer",
+            "From": "04/2005",
+            "To": "06/2006",
+            "Duties": [
                 "Developed a secure control panel for 2 MySQL databases (including the newly developed database mentioned above) that allowed users to register, log in and administer their account at Webonline"
             ],
-            "techStack": [
+            "Tech Stack": [
                 "Apache",
                 "MySQL",
                 "PHP 4",
@@ -275,7 +277,7 @@ const Resume = {
                 "PHPMyAdmin",
                 "DBDesigner"
             ],
-            "reasonToLeave": "Needed a company that would allow me to grow professionally"
+            "Reason for leaving": "Needed a company that would allow me to grow professionally"
         },
     ],
 }
