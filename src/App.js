@@ -9,7 +9,7 @@ import Content from './containers/Content';
 import PersonalDetails from './containers/PersonalDetails';
 import Education from './containers/Education';
 import SkillsMatrix from './containers/SkillsMatrix';
-import WorkExperience from './containers/WorkExperience';
+import WorkExperience from './containers/WorkExperience'
 
 import Resume from './data/Resume.js';
 
@@ -50,7 +50,6 @@ class App extends Component {
                                       key = {sectionName}
                                       id  = {sectionID}
                                       details = {Resume[sectionName]}
-                                      resume  = {Resume}
                                 />
                           </Tab>
 
