@@ -13,12 +13,100 @@ class Gauge extends Component {
         this.name = props.name;
         this.data = props.data;
     }
+    formatDataBackGround() {
+        const backgroundSeries =
+            [
+/*                { // Track for Test -- note that each percentage value is currently increased by 10% as indication of band-width
+                    outerRadius: '105%',
+                    innerRadius: '95%',
+                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.2).get(),
+                    borderWidth: 0
+                },
+                { // Track for Move
+                outerRadius: '95%',
+                innerRadius: '85%',
+                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.2).get(),
+                borderWidth: 0
+                },
+                { // Track for Exercise
+                outerRadius: '85%',
+                innerRadius: '75%',
+                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.2).get(),
+                borderWidth: 0
+                },
+                { // Track for Stand
+                outerRadius: '75%',
+                innerRadius: '65%',
+                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.2).get(),
+                borderWidth: 0
+            }*/
+         ];
+        return backgroundSeries;
+    }
+/*
+*
+ */
+    formatSeries() {
+        //console.log(JSON.stringify(this.data));
+        // console.log(this.data);
+        // console.log("\n\r");
 
+        let temp = Object.keys(this.data).map((val, key) => {
+            this.data[val]['borderColor'] = Highcharts.getOptions().colors[0];
+            return this.data[val];
+            });
+        let series = temp[0];
+        console.log(JSON.stringify(series[0]));
+        //console.log(JSON.stringify(series[0]));
+        // let series =
+        //     [
+        //         { // again, 10% difference
+        //             name: 'Test',
+        //             borderColor: Highcharts.getOptions().colors[0],
+        //             data: [{
+        //                 color: Highcharts.getOptions().colors[0],
+        //                 radius: '100%',
+        //                 innerRadius: '100%',
+        //                 y: 90
+        //             }]
+        //         }, {
+        //         name: 'Move',
+        //         borderColor: Highcharts.getOptions().colors[0],
+        //         data: [{
+        //             color: Highcharts.getOptions().colors[0],
+        //             radius: '90%',
+        //             innerRadius: '90%',
+        //             y: 80
+        //         }]
+        //     }, {
+        //         name: 'Exercise',
+        //         borderColor: Highcharts.getOptions().colors[1],
+        //         data: [{
+        //             color: Highcharts.getOptions().colors[1],
+        //             radius: '80%',
+        //             innerRadius: '80%',
+        //             y: 65
+        //         }]
+        //     }, {
+        //         name: 'Stand',
+        //         borderColor: Highcharts.getOptions().colors[2],
+        //         data: [{
+        //             color: Highcharts.getOptions().colors[2],
+        //             radius: '70%',
+        //             innerRadius: '70%',
+        //             y: 50
+        //         }]
+        //     }];
+            return series;
+    }
+/*
+*
+ */
     options() {
         return {
             chart: {
                 type: 'solidgauge',
-                marginTop: 50
+                marginTop: 50,
             },
 
             title: {
@@ -38,30 +126,10 @@ class Gauge extends Component {
                 pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
                 positioner: function (labelWidth, labelHeight) {
                     return {
+                        x: 245 - labelWidth / 2,
                         y: 180
                     };
                 }
-            },
-
-            pane: {
-                startAngle: 0,
-                endAngle: 360,
-                background: [{ // Track for Move
-                    outerRadius: '112%',
-                    innerRadius: '88%',
-                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
-                    borderWidth: 0
-                }, { // Track for Exercise
-                    outerRadius: '87%',
-                    innerRadius: '63%',
-                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
-                    borderWidth: 0
-                }, { // Track for Stand
-                    outerRadius: '62%',
-                    innerRadius: '38%',
-                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
-                    borderWidth: 0
-                }]
             },
 
             yAxis: {
@@ -73,7 +141,7 @@ class Gauge extends Component {
 
             plotOptions: {
                 solidgauge: {
-                    borderWidth: '34px',
+                    borderWidth: '13px',
                     dataLabels: {
                         enabled: false
                     },
@@ -82,34 +150,12 @@ class Gauge extends Component {
                 }
             },
 
-            series: [{
-                name: 'Move',
-                borderColor: Highcharts.getOptions().colors[0],
-                data: [{
-                    color: Highcharts.getOptions().colors[0],
-                    radius: '100%',
-                    innerRadius: '100%',
-                    y: 80
-                }]
-            }, {
-                name: 'Exercise',
-                borderColor: Highcharts.getOptions().colors[1],
-                data: [{
-                    color: Highcharts.getOptions().colors[1],
-                    radius: '75%',
-                    innerRadius: '75%',
-                    y: 65
-                }]
-            }, {
-                name: 'Stand',
-                borderColor: Highcharts.getOptions().colors[2],
-                data: [{
-                    color: Highcharts.getOptions().colors[2],
-                    radius: '50%',
-                    innerRadius: '50%',
-                    y: 50
-                }]
-            }]
+            pane: {
+                startAngle: 0,
+                endAngle: 360,
+                background: this.formatDataBackGround()
+            },
+            series: this.formatSeries()
         };
     }
     callback() {
@@ -151,18 +197,12 @@ class Gauge extends Component {
     };
     render () {
         return (
-            <div className="row">
-                <div className="col-md-4 col-md-offset-3">
-                    <HighchartsReact
-                        highcharts={Highcharts}
-                        options={
-                        this.options()}>
-                    </HighchartsReact>
-                </div>
-            </div>
-
-        );
-    }
+            <HighchartsReact
+                highcharts={Highcharts}
+                options={
+                this.options()}>
+            </HighchartsReact>
+        )}
 }
 
 export default Gauge;

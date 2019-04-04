@@ -9,7 +9,7 @@ const Resume = {
     },
     "Skills Matrix": {
         "Back-End": {
-            "PHP": 4,
+            "PHP": 4.5,
             //"Laravel 2+": 2,
             "SQL": 4,
             "CakePHP": 3,
