@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-//import ReactHighcharts from 'react-highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
 import HighchartsReact from 'highcharts-react-official'
 
 var Highcharts = require('highcharts');
+
 class Gauge extends Component {
     constructor (props) {
         super(props);
         HighchartsMore(Highcharts);
         SolidGauge(Highcharts);
-        this.name = props.name;
-        this.data = props.data;
+        this.name       = props.name;
+        this.data       = props.data;
+        this.dataBG     = props.dataBG;
+        this.trackWidth = props.trackWidth;
     }
     formatDataBackGround() {
         const backgroundSeries =
@@ -46,62 +48,6 @@ class Gauge extends Component {
 /*
 *
  */
-    formatSeries() {
-        //console.log(JSON.stringify(this.data));
-        // console.log(this.data);
-        // console.log("\n\r");
-
-        let temp = Object.keys(this.data).map((val, key) => {
-            this.data[val]['borderColor'] = Highcharts.getOptions().colors[0];
-            return this.data[val];
-            });
-        let series = temp[0];
-        console.log(JSON.stringify(series[0]));
-        //console.log(JSON.stringify(series[0]));
-        // let series =
-        //     [
-        //         { // again, 10% difference
-        //             name: 'Test',
-        //             borderColor: Highcharts.getOptions().colors[0],
-        //             data: [{
-        //                 color: Highcharts.getOptions().colors[0],
-        //                 radius: '100%',
-        //                 innerRadius: '100%',
-        //                 y: 90
-        //             }]
-        //         }, {
-        //         name: 'Move',
-        //         borderColor: Highcharts.getOptions().colors[0],
-        //         data: [{
-        //             color: Highcharts.getOptions().colors[0],
-        //             radius: '90%',
-        //             innerRadius: '90%',
-        //             y: 80
-        //         }]
-        //     }, {
-        //         name: 'Exercise',
-        //         borderColor: Highcharts.getOptions().colors[1],
-        //         data: [{
-        //             color: Highcharts.getOptions().colors[1],
-        //             radius: '80%',
-        //             innerRadius: '80%',
-        //             y: 65
-        //         }]
-        //     }, {
-        //         name: 'Stand',
-        //         borderColor: Highcharts.getOptions().colors[2],
-        //         data: [{
-        //             color: Highcharts.getOptions().colors[2],
-        //             radius: '70%',
-        //             innerRadius: '70%',
-        //             y: 50
-        //         }]
-        //     }];
-            return series;
-    }
-/*
-*
- */
     options() {
         return {
             chart: {
@@ -112,7 +58,7 @@ class Gauge extends Component {
             title: {
                 text: this.name,
                 style: {
-                    fontSize: '24px'
+                    fontSize: '20px'
                 }
             },
 
@@ -141,7 +87,7 @@ class Gauge extends Component {
 
             plotOptions: {
                 solidgauge: {
-                    borderWidth: '13px',
+                    borderWidth: this.trackWidth,
                     dataLabels: {
                         enabled: false
                     },
@@ -155,9 +101,16 @@ class Gauge extends Component {
                 endAngle: 360,
                 background: this.formatDataBackGround()
             },
-            series: this.formatSeries()
+            series: this.data.trackData,
+            credits: {
+                enabled: false
+            },
+
         };
     }
+/*
+* Wouldn't it be cool if I can incorporate the tech-logo here...?
+ */
     callback() {
         // Move icon
         this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8])
