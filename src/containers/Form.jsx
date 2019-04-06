@@ -38,13 +38,8 @@ class FormContainer extends Component {
         myHeaders.delete('Content-Type');
         formData.append('uploadedFile', fileField.files[0]);
 
-        fetch(this.apiUrl, {
-
-            method: 'POST',
-            body: formData,
-            headers: myHeaders,
-            credentials: 'include'
-        })
+        fetch(this.apiUrl,
+              this.fetchParams(formData, myHeaders))
             .then(response => response.json())
             .then((response) => {
                 this.setState({
@@ -71,18 +66,25 @@ class FormContainer extends Component {
 /*
 *
  */
+    fetchParams(formData, headers) {
+        return {
+            method: 'POST',
+            body: formData,
+            headers: headers,
+            credentials: 'include'
+        }
+    }
+/*
+*
+ */
     formSubmit(e) {
         e.preventDefault();
         let formData = new FormData();
         let myHeaders = new Headers();
         formData.append(this.dropdownName, this.state.selectedSheet);
         formData.append(this.genericInputId, this.state.genericInputValue);
-        fetch(this.apiUrl, {
-             method: 'POST',
-             body: formData,
-             headers: myHeaders,
-             credentials: 'include'
-         })
+        fetch(this.apiUrl,
+              this.fetchParams(formData, myHeaders))
             .then(response => response.json())
             .then((response) => {
                this.columns = response.payload.columns;

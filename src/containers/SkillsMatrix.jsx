@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
 import Gauge from '../components/charts/Gauge';
+import Utils from '../utils/Utils';
 
 class SkillsMatrix extends Component {
     constructor (props) {
         super(props);
         this.details     = props.details;
         this.id          = props.id;
-        this.trackBG     = {};
         this.trackData   = [];
+        this.trackBG     = [];
+        this.trackBGOpacity = 0.2;
+        this.wideTrackWidth = "14px";
+        this.narrowTrackWidth = "7px";
         this.sectionAvg  = 0;
         this.sectionWght = 0;
         this.totalItems  = 0;
         this.totalScore  = 0;
+        this.innerRadiusMod = 0;
+        this.percDecrement = 10; //each band should be 5% smaller than previous
+        this.utils         = new Utils();
         this.trackWidth  = '10px';
-        this.colorArray  = ["#FF178E",
-                            "#9813EB",
-                            "#232CFF",
-                            "#079DEB",
-                            "#FF178E",
-                            "#9813EB",
-                            "#232CFF",
-                            "#079DEB",
-                            "#FF178E",
-                            "#9813EB",
-                            "#232CFF",
-                            "#079DEB"];
     }
 /*
 * //gets sections - 'Front End', 'Back End', Dev Ops', etc
@@ -40,7 +35,9 @@ class SkillsMatrix extends Component {
                     <Gauge
                         name       = {sectionName}
                         data       = {{trackData: this.trackData}}
+                        dataBG     = {this.trackBG}
                         trackWidth = {this.trackWidth}
+
                     />
                 </div>
 
@@ -52,13 +49,15 @@ class SkillsMatrix extends Component {
  */
     setSubSection(subDetailsObj, sectionName) {
         this.trackData    = [];//to be reset with each iteration...
+        this.trackBG      = [];
         this.totalItems   = Object.keys(subDetailsObj).length
         let thisPerc      =  100;
-        let percDecrement = this.calculateTrackWidth(subDetailsObj);
+        this.calculateTrackWidth(subDetailsObj);
         Object.keys(subDetailsObj).forEach((subValue, subKey) => {
-            thisPerc        -= percDecrement;
+            thisPerc        -= this.percDecrement;
             this.totalScore += subDetailsObj[subValue];
             this.trackData.push(this.buildHighchartsTrack(subValue, subDetailsObj[subValue], subKey, thisPerc));
+            this.trackBG.push(this.buildHighchartsTrackBG(thisPerc, subKey));
         });
     }
 /*
@@ -66,29 +65,43 @@ class SkillsMatrix extends Component {
 * The percentage difference must also decrease in smaller increments to ensure we don't decrease band offset into the minusses
 */
     calculateTrackWidth(trackDetails) {
-        let percDecrement = 10;
         if (Object.keys(trackDetails).length > 9) {
-            percDecrement = 5;
-            this.trackWidth = '6px';
+            this.percDecrement = 5;
+            this.innerRadiusMod = 0;
+            this.trackWidth = this.narrowTrackWidth;
         } else {
-            this.trackWidth = '14px';
+            this.percDecrement = 10;
+            this.innerRadiusMod = 0;
+            this.trackWidth = this.wideTrackWidth;
         }
-        return percDecrement;
     }
 /*
-* Highcharts JSON component
+* Highcharts JSON components
  */
     buildHighchartsTrack(trackTitle, trackVal, counter, thisPerc) {
         return {
             name: trackTitle,
-            borderColor: this.colorArray[counter],
+            borderColor: this.utils.pickColor(counter),
             data: [{
                 y: trackVal*20,
-                color: this.colorArray[counter],
+                color: this.utils.pickColor(counter),
                 radius: thisPerc+'%',
                 innerRadius: thisPerc+'%',
             }]
         };
+    }
+/*
+*
+ */
+    buildHighchartsTrackBG(currentPerc, counter) {
+        let color  = this.utils.pickColor(counter);
+        let rgbCol = this.utils.hexToRgb(color);
+        return { // Track for Test -- note that each percentage value is currently increased by 10% as indication of band-width
+                outerRadius: (currentPerc+this.percDecrement/2)+'%',
+                innerRadius: ((currentPerc+this.percDecrement/2)-(this.percDecrement)+this.innerRadiusMod)+'%',
+                backgroundColor: "rgb("+rgbCol.r+", "+rgbCol.g+", "+rgbCol.b+", "+this.trackBGOpacity+")",
+                borderWidth: 0
+            }
     }
 /*
 *

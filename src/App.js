@@ -44,7 +44,6 @@ class App extends Component {
                               title   ={sectionName}
                               eventKey={sectionID}
                               key     ={"tab-"+sectionID}>
-
                                 <TabContent
                                       key = {sectionName}
                                       id  = {sectionID}

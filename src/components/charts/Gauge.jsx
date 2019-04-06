@@ -15,36 +15,6 @@ class Gauge extends Component {
         this.dataBG     = props.dataBG;
         this.trackWidth = props.trackWidth;
     }
-    formatDataBackGround() {
-        const backgroundSeries =
-            [
-/*                { // Track for Test -- note that each percentage value is currently increased by 10% as indication of band-width
-                    outerRadius: '105%',
-                    innerRadius: '95%',
-                    backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.2).get(),
-                    borderWidth: 0
-                },
-                { // Track for Move
-                outerRadius: '95%',
-                innerRadius: '85%',
-                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.2).get(),
-                borderWidth: 0
-                },
-                { // Track for Exercise
-                outerRadius: '85%',
-                innerRadius: '75%',
-                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.2).get(),
-                borderWidth: 0
-                },
-                { // Track for Stand
-                outerRadius: '75%',
-                innerRadius: '65%',
-                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.2).get(),
-                borderWidth: 0
-            }*/
-         ];
-        return backgroundSeries;
-    }
 /*
 *
  */
@@ -99,7 +69,7 @@ class Gauge extends Component {
             pane: {
                 startAngle: 0,
                 endAngle: 360,
-                background: this.formatDataBackGround()
+                background: this.dataBG
             },
             series: this.data.trackData,
             credits: {

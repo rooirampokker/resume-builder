@@ -9,9 +9,9 @@ class Content extends Component {
         this.utils    = new Utils();
         this.componentName = this.utils.camelize(this.constructor.name);
     }
-    /*
-    *
-    */
+/*
+*
+*/
     buildRow() {
         return Object.keys(this.details).map((value, key) => {
             return (
@@ -28,9 +28,9 @@ class Content extends Component {
             );
         });
     }
-    /*
-    *
-    */
+/*
+*
+*/
     render() {
         return (
             <div className={"container"}
