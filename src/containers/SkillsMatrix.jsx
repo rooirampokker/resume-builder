@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Gauge from '../components/charts/Gauge';
 import Utils from '../utils/Utils';
+import './SkillsMatrix.css'
 
 class SkillsMatrix extends Component {
     constructor (props) {
@@ -29,16 +30,13 @@ class SkillsMatrix extends Component {
             let subDetailsObj  = this.details[sectionName];
             this.setSubSection(subDetailsObj, sectionName);
             return (
-                <div className="col-md-4"
-                     key = {"gauge-"+sectionName+key}
-                >
+                <div className="col-md-4 skillContainer"
+                     key = {"gauge-"+sectionName+key}>
                     <Gauge
                         name       = {sectionName}
                         data       = {{trackData: this.trackData}}
                         dataBG     = {this.trackBG}
-                        trackWidth = {this.trackWidth}
-
-                    />
+                        trackWidth = {this.trackWidth}/>
                 </div>
 
             );
@@ -65,7 +63,7 @@ class SkillsMatrix extends Component {
 * The percentage difference must also decrease in smaller increments to ensure we don't decrease band offset into the minusses
 */
     calculateTrackWidth(trackDetails) {
-        if (Object.keys(trackDetails).length > 9) {
+        if (Object.keys(trackDetails).length >= 9) {
             this.percDecrement = 5;
             this.innerRadiusMod = 0;
             this.trackWidth = this.narrowTrackWidth;
@@ -83,7 +81,7 @@ class SkillsMatrix extends Component {
             name: trackTitle,
             borderColor: this.utils.pickColor(counter),
             data: [{
-                y: trackVal*20,
+                y: trackVal*20,//multiply 0-5 with 20 to get percentage
                 color: this.utils.pickColor(counter),
                 radius: thisPerc+'%',
                 innerRadius: thisPerc+'%',
