@@ -16,6 +16,7 @@ import Resume from './data/Resume.js';
 class App extends Component {
     constructor(props) {
         super(props);
+        document.title = Resume.heading;
         this.state = {
 
         }
@@ -45,7 +46,6 @@ class App extends Component {
                               eventKey={sectionID}
                               key     ={"tab-"+sectionID}>
                                 <TabContent
-                                      key = {sectionName}
                                       id  = {sectionID}
                                       details = {Resume[sectionName]}
                                 />
