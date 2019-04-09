@@ -81,13 +81,13 @@ const Resume = {
     "Education": [
         {
             "name": "ZCE (Zend Certified Engineer)",
-            "dateAchieved": "04/2006",
+            "dateAchieved": "04-01-2006",
             "description": "Professional Qualification at CTU Training Solutions in Pretoria, South Africa (Gauteng)",
             "subjects": [],
         },
         {
             "name": "Computer Training Institute (CTI)",
-            "dateAchieved": "12/2002",
+            "dateAchieved": "12-01-2002",
             "description": "Comprehensive Programming, validated by Cambridge University",
             "subjects": [
                 "Programming: C",
@@ -108,7 +108,7 @@ const Resume = {
         },
         {
             "name": "Kokstad College",
-            "dateAchieved": "12/2002",
+            "dateAchieved": "12-01-2002",
             "description": "National Senior Certificate",
             "subjects": [
                 "Afrikaans",
@@ -124,8 +124,8 @@ const Resume = {
         {
             "Organisation": "Kantar Millward Brown",
             "Role": "Full Stack Engineer",
-            "From": "04/2018",
-            "To": "Current",
+            "From": "04-01-2018",
+            "To": "04-30-2019",
             "Duties": [
                 "Maintain, debug and extend legacy survey platform.",
                 "Set up multi-user installation of Wordpress and write plugins to extend panelist recruitment platform.",
@@ -137,8 +137,8 @@ const Resume = {
         {
             "Organisation": "Platform45",
             "Role": "Rails Developer",
-            "From": "10/2016",
-            "To": "04/2018",
+            "From": "10-01-2016",
+            "To": "03-31-2018",
             "Projects": [
                 {
                     "name": "LoadX",
@@ -194,8 +194,8 @@ const Resume = {
         {
             "Organisation": "INET BFA",
             "Role": "Senior Web Developer",
-            "From": "02/2012",
-            "To": "10/2016",
+            "From": "02-01-2012",
+            "To": "09-30-2016",
             "Projects": [
                 {
                     "name": "INETBFA CRM Rebuild",
@@ -234,8 +234,8 @@ const Resume = {
         {
             "Organisation": "Avusa/TMG",
             "Role": "Web Development Engineer",
-            "From": "10/2007",
-            "To": "02/2012",
+            "From": "10-01-2007",
+            "To": "01-31-2012",
             "Duties": [
                 "Develop new websites, applications & services for organisations such as Sunday Times/TimesLive, Elle Magazine, SA Homeowner, Summit TV, Business Day & Sowetan.",
                 "Provide support on existing LAMP Servers (4 CentOS & 2x legacy SunOS servers).",
@@ -251,8 +251,8 @@ const Resume = {
         {
             "Organisation": "Decisionworx",
             "Role": "PHP/LAMP Developer",
-            "From": "06/2006",
-            "To": "10/2007",
+            "From": "06-31-2006",
+            "To": "09-30-2007",
             "Duties": [
                 "Participate in the complete software development cycle of a CRM/CMS mashup system (ROAR) based on SugarCRM, CiviCRM, & a custom-built microsite publisher for an American non-profit organisation.",
                 "Soliciting requirements from the users, managing client expectations and matching the final agreed on requirements to deliverables and deadlines while managing subsequent maintenance schedules.",
@@ -264,8 +264,8 @@ const Resume = {
         {
             "Organisation": "Webonline",
             "Role": "Junior Web Developer",
-            "From": "04/2005",
-            "To": "06/2006",
+            "From": "04-01-2005",
+            "To": "05-31-2006",
             "Duties": [
                 "Developed a secure control panel for 2 MySQL databases (including the newly developed database mentioned above) that allowed users to register, log in and administer their account at Webonline"
             ],

@@ -39,6 +39,12 @@ class Utils {//thank you stack-overflow for this bountiful harvest
         key = key % this.colorArray.length;
         return this.colorArray[key];
     }
+/*
+*
+*/
+    toTimeStamp(inputDate) {
+        return new Date(inputDate).getTime()
+    }
 
 }
 export default Utils;
