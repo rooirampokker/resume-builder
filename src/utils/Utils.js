@@ -45,6 +45,13 @@ class Utils {//thank you stack-overflow for this bountiful harvest
     toTimeStamp(inputDate) {
         return new Date(inputDate).getTime()
     }
+/*
+*
+*/
+    monthsAgo(inputDate, monthsAgo) {
+        return inputDate.setMonth(inputDate.getMonth() - monthsAgo);
+    }
+
 
 }
 export default Utils;
