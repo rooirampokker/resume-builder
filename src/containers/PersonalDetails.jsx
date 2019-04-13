@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Utils from '../utils/Utils';
+import { Row, Col } from 'react-bootstrap';
 
 class PersonalDetails extends Component {
     constructor(props) {
@@ -9,28 +10,29 @@ class PersonalDetails extends Component {
         this.utils    = new Utils();
         this.componentName = this.utils.camelize(this.constructor.name);
     }
-/*
-*
-*/
+    /*
+    *
+    */
     buildRow() {
         return Object.keys(this.details).map((value, key) => {
             return (
-                <div className= "row"
-                     id       = {this.componentName+"Row"+key}
-                     key      = {this.componentName+"Content-" + key}>
-                    <div className='textLabel col-3 label'>
+                <Row
+                    id       = {this.componentName+"Row"+key}
+                    key      = {this.componentName+"Content-" + key}>
+                    <Col
+                        md={2}>
                         {value}
-                    </div>
-                    <div className='textValue col value'>
+                    </Col>
+                    <Col  md={10}>
                         {this.details[value]}
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             );
         });
     }
-/*
-*
-*/
+    /*
+    *
+    */
     render() {
         return (
             <div className={"container"}

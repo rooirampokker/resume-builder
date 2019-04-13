@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-
 import Utils from './utils/Utils';
 import Content from './containers/Content';
 import PersonalDetails from './containers/PersonalDetails';
 import Education from './containers/Education';
 import SkillsMatrix from './containers/SkillsMatrix';
-import WorkExperience from './containers/WorkExperience'
+import WorkExperience from './containers/WorkExperience';
 
 import Resume from './data/Resume.js';
 
