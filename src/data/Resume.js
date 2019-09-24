@@ -37,6 +37,7 @@ const Resume = {
             "Linux (Assorted Debian & Redhat Distros": 4.4,
             "Source Control: (Git/GitHub,SVN,CVS)": 4.2,
             "Apache": 4.1,
+            "CircleCI": 3.8,
             "Webpack": 3.3,
             "AWS: EC2": 3.2,
             "AWS: S3": 3,
@@ -48,7 +49,6 @@ const Resume = {
             "Capistrano": 2.6,
             "CodeClimate": 2,
             "Travis": 2,
-            "CircleCI": 2,
         },
         "DBMS": {
             "MySQL": 4,

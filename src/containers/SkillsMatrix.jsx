@@ -30,7 +30,7 @@ class SkillsMatrix extends Component {
             let subDetailsObj  = this.details[sectionName];
             this.setSubSection(subDetailsObj, sectionName);
             return (
-                <div className="col-md-4 skillContainer"
+                <div className="col-sm-6 col-md-4 skillContainer"
                      key = {"gauge-"+sectionName+key}>
                     <Gauge
                         name       = {sectionName}
