@@ -52,15 +52,15 @@ class WorkExperience extends Component {
 *
 */
     checkEmployers(value) {
-       let startDate = new Date(value.min).getFullYear();
-       let endDate   = new Date(value.max).getFullYear();
+       let rangeStart = new Date(value.min).getFullYear();
+       let rangeEnd   = new Date(value.max).getFullYear();
 
        return (Object.keys(this.details).map((item, index) => {
-           let fromDate = new Date(this.details[index].From).getFullYear();
-           let toDate   = new Date(this.details[index].To).getFullYear();
-           if ((fromDate >= startDate && fromDate <= endDate) ||
-             (startDate >= fromDate && endDate <= toDate) ||
-             (toDate >= startDate && fromDate <= startDate)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
+           let employmentStart = new Date(this.details[index].From).getFullYear();
+           let employmentEnd   = new Date(this.details[index].To).getFullYear();
+           if ((employmentStart >= rangeStart && employmentStart <= rangeEnd) ||
+             (rangeStart >= employmentStart && rangeEnd <= employmentEnd) ||
+             (employmentStart >= rangeStart && employmentStart <= rangeStart)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
                return (
                    <div className={"activeEmployer"}
                         key={"employer"+index}>
@@ -70,7 +70,9 @@ class WorkExperience extends Component {
            } else return false;
         }));
     }
-
+/*
+*
+*/
     getActiveEmployer(employer) {
         return Object.keys(employer).map((label, val) => {
             if (!Array.isArray(employer[label])) {
@@ -112,9 +114,11 @@ class WorkExperience extends Component {
 */
     generateTimeline() {
         return (
-            <div className= "row"
-                 id       = {this.componentName+"RowTimeline"}>
-                <div className='textLabel col-8 label'>
+            <Row
+                id = {this.componentName+"RowTimeline"}>
+                <Col
+                    md={8}
+                    className='textLabel label'>
                     <InputRange
                         draggableTrack
                         step    ={31536000*1000}
@@ -124,8 +128,8 @@ class WorkExperience extends Component {
                         onChange={value => this.validateRange(value)}
                         //onChangeComplete={value => this.showSectionInRange(value)}
                         formatLabel={value => new Date(value).toLocaleDateString("en-US", {year: 'numeric'})}/>
-                </div>
-            </div>
+                </Col>
+            </Row>
         );
     }
 /*
@@ -135,12 +139,7 @@ class WorkExperience extends Component {
         return (
             <div className="container-fluid">
                 {this.generateTimeline()}
-                    <div className= "row"
-                         id       = {this.componentName+"RowTimeline"}>
-                        <div className='textLabel col-8 label'>
-                            {this.checkEmployers(this.state.value)}
-                        </div>
-                    </div>
+                {this.checkEmployers(this.state.value)}
             </div>
         );
     }
