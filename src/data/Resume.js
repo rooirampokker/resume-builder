@@ -75,6 +75,7 @@ const Resume = {
             "Jira (Setup, administration and use)": 4,
             "Trello": 4,
             "Oracle VirtualBox": 4,
+            "Asana": 3,
             "PHPStorm": 3,
             "Slack/MS-Teams": 3,
             "Netbeans": 2,
@@ -123,6 +124,22 @@ const Resume = {
         }
     ],
     "Work Experience": [
+      {
+        "Organisation": "Brave Digital",
+        "Role": "Full Stack Developer",
+        "From": "05-01-2019",
+        "To": "09-25-2019",
+        "Projects": [
+
+        ],
+        "Tech Stack": [
+
+        ],
+        "Duties": [
+
+        ],
+        "Reason for leaving": "Imigration"
+      },
         {
             "Organisation": "Kantar Millward Brown",
             "Role": "Full Stack Engineer",
