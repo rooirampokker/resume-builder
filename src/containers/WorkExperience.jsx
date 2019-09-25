@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Utils from '../utils/Utils';
 import InputRange from 'react-input-range';
+import { Row, Col } from 'react-bootstrap';
 import ('react-input-range/lib/css/index.css');
 
 class WorkExperience extends Component {
@@ -11,6 +12,7 @@ class WorkExperience extends Component {
         this.componentName = this.utils.camelize(this.constructor.name);
         this.earliestDate = 0;
         this.latestDate = 0;
+        this.employers = [];
         this.state = {
             latestDate: 0,
             earliestDate: 0,
@@ -24,12 +26,13 @@ class WorkExperience extends Component {
 */
     componentWillMount() {
       this.initDateRange();
+      //this.getActiveEmployers(this.state.value);
     }
 /*
 *
 */
     componentDidMount() {
-      this.showSectionInRange(this.state.value);
+
     }
 /*
 *
@@ -53,17 +56,32 @@ class WorkExperience extends Component {
 /*
 *
 */
-    showSectionInRange(value) {
-        let startDate = new Date(value.min).getFullYear();
-        let endDate   = new Date(value.max).getFullYear();
-        console.clear();
-        Object.keys(this.details).forEach((item, index) => {
+    getActiveEmployers(value) {
+       let startDate = new Date(value.min).getFullYear();
+       let endDate   = new Date(value.max).getFullYear();
+       console.clear();
+       return Object.keys(this.details).map((item, index) => {
            let fromDate = new Date(this.details[index].From).getFullYear();
            let toDate   = new Date(this.details[index].To).getFullYear();
            if ((fromDate >= startDate && fromDate <= endDate) ||
              (startDate >= fromDate && endDate <= toDate) ||
              (toDate >= startDate && fromDate <= startDate)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
-               console.log(this.details[index]);
+
+               return Object.keys(this.details[index]).map((label, val)=> {
+                   if (!Array.isArray(this.details[index][label])) {
+                       return (
+                           <Row
+                               key = {val}>
+                               <Col
+                                   md={2}>
+                                   {label}
+                               </Col>
+                               <Col  md={10}>
+                                   {this.details[index][label]}
+                               </Col>
+                           </Row>);
+                   }
+               });
            }
         });
     }
@@ -76,12 +94,14 @@ class WorkExperience extends Component {
         let latestYear = new Date(this.latestDate).getFullYear();
         if (value.min > this.earliestDate &&
             maxYear <= latestYear) {
-            this.setState({value: {
-                min: value.min,
-                max: value.max
-              }});
+            this.setState({
+                value: {
+                    min: value.min,
+                    max: value.max
+                }
+            })
         }
-    };
+    }
 /*
 * We need to determine the start and end dates here - get start and end dates for all listed items in supplied data, then find earliest and latest date as input
 */
@@ -97,7 +117,7 @@ class WorkExperience extends Component {
                         minValue={this.state.earliestDate}
                         value={this.state.value}
                         onChange={value => this.validateRange(value)}
-                        onChangeComplete={value => this.showSectionInRange(value)}
+                        //onChangeComplete={value => this.showSectionInRange(value)}
                         formatLabel={value => new Date(value).toLocaleDateString("en-US", {year: 'numeric'})}/>
                 </div>
             </div>
@@ -113,9 +133,7 @@ class WorkExperience extends Component {
                     <div className= "row"
                          id       = {this.componentName+"RowTimeline"}>
                         <div className='textLabel col-8 label'>
-                            {
-                                //previous employment to be listed here if slider value allows
-                            }
+                            {this.getActiveEmployers(this.state.value)}
                         </div>
                     </div>
             </div>
