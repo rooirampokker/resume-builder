@@ -1,0 +1,12 @@
+.activeEmployer {
+  padding: 20px;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.activeEmployer .label {
+  font-weight: bold;
+}
+
+.activeEmployer:last-child {
+  border-bottom: 0px;
+}

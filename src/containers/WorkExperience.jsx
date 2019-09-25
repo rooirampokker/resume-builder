@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Utils from '../utils/Utils';
 import InputRange from 'react-input-range';
 import { Row, Col } from 'react-bootstrap';
+import './WorkExperience.css';
 import ('react-input-range/lib/css/index.css');
+
 
 class WorkExperience extends Component {
     constructor(props) {
@@ -26,13 +28,6 @@ class WorkExperience extends Component {
 */
     componentWillMount() {
       this.initDateRange();
-      //this.getActiveEmployers(this.state.value);
-    }
-/*
-*
-*/
-    componentDidMount() {
-
     }
 /*
 *
@@ -56,33 +51,43 @@ class WorkExperience extends Component {
 /*
 *
 */
-    getActiveEmployers(value) {
+    checkEmployers(value) {
        let startDate = new Date(value.min).getFullYear();
        let endDate   = new Date(value.max).getFullYear();
-       console.clear();
-       return Object.keys(this.details).map((item, index) => {
+
+       return (Object.keys(this.details).map((item, index) => {
            let fromDate = new Date(this.details[index].From).getFullYear();
            let toDate   = new Date(this.details[index].To).getFullYear();
            if ((fromDate >= startDate && fromDate <= endDate) ||
              (startDate >= fromDate && endDate <= toDate) ||
              (toDate >= startDate && fromDate <= startDate)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
+               return (
+                   <div className={"activeEmployer"}
+                        key={"employer"+index}>
+                       {this.getActiveEmployer(this.details[index])}
+                   </div>
+               );
+           } else return false;
+        }));
+    }
 
-               return Object.keys(this.details[index]).map((label, val)=> {
-                   if (!Array.isArray(this.details[index][label])) {
-                       return (
-                           <Row
-                               key = {val}>
-                               <Col
-                                   md={2}>
-                                   {label}
-                               </Col>
-                               <Col  md={10}>
-                                   {this.details[index][label]}
-                               </Col>
-                           </Row>);
-                   }
-               });
-           }
+    getActiveEmployer(employer) {
+        return Object.keys(employer).map((label, val) => {
+            if (!Array.isArray(employer[label])) {
+                return (
+                    <Row
+                        key = {"employerCol"+val}>
+                        <Col
+                            md={2}
+                            className={"label"}>
+                            {label}
+                        </Col>
+                        <Col  md={10}
+                              className={"value"}>
+                            {employer[label]}
+                        </Col>
+                    </Row>);
+            } else return false;
         });
     }
 /*
@@ -133,7 +138,7 @@ class WorkExperience extends Component {
                     <div className= "row"
                          id       = {this.componentName+"RowTimeline"}>
                         <div className='textLabel col-8 label'>
-                            {this.getActiveEmployers(this.state.value)}
+                            {this.checkEmployers(this.state.value)}
                         </div>
                     </div>
             </div>
