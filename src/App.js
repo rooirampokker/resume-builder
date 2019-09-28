@@ -55,12 +55,12 @@ class App extends Component {
         });
 
         return (
-            <>
+            <div className={"container"}>
                <legend>{Resume.heading}</legend>
-               <Tabs defaultActiveKey="home" transition={false} id="noanim-tab-example">
+               <Tabs defaultActiveKey="home" transition={false} id="tab">
                         {tabs}
                </Tabs>
-            </>
+            </div>
         );
     }
 }
