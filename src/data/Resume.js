@@ -83,13 +83,13 @@ const Resume = {
     },
     "Education": [
         {
-            "name": "ZCE (Zend Certified Engineer)",
+            "Name": "ZCE (Zend Certified Engineer)",
             "dateAchieved": "04-01-2006",
             "description": "Professional Qualification at CTU Training Solutions in Pretoria, South Africa (Gauteng)",
             "subjects": [],
         },
         {
-            "name": "Computer Training Institute (CTI)",
+            "Name": "Computer Training Institute (CTI)",
             "dateAchieved": "12-01-2002",
             "description": "Comprehensive Programming, validated by Cambridge University",
             "subjects": [
@@ -104,13 +104,13 @@ const Resume = {
 
         },
         {
-            "name": "CompTia A+",
+            "Name": "CompTia A+",
             "dateAchieved": "10/2000",
             "description": "Certificate at IT Intellect in Durban, South Africa (KwaZulu Natal)",
             "subjects": [],
         },
         {
-            "name": "Kokstad College",
+            "Name": "Kokstad College",
             "dateAchieved": "12-01-2002",
             "description": "National Senior Certificate",
             "subjects": [
@@ -160,20 +160,20 @@ const Resume = {
             "To": "03-31-2018",
             "Projects": [
                 {
-                    "name": "LoadX",
-                    "objective": "To be part of a small team of developers responsible for delivering a matchmaking service between Shippers and Transporters, allowing Transporters to respond to bids created by Shippers to move cargo from origin to destination.",
+                    "Name": "LoadX",
+                    "Objective": "To be part of a small team of developers responsible for delivering a matchmaking service between Shippers and Transporters, allowing Transporters to respond to bids created by Shippers to move cargo from origin to destination.",
                 },
                 {
-                    "name": "MyTopDog",
-                    "objective": "To be part of a multi-national team responsible for developing a web backend for a mobile app which allows users to administer and complete checklists.",
+                    "Name": "MyTopDog",
+                    "Objective": "To be part of a multi-national team responsible for developing a web backend for a mobile app which allows users to administer and complete checklists.",
                 },
                 {
-                    "name": "Lobster Inc",
-                    "objective": "To develop and consume an API for an education platform to deliver customized learning support for grades 4 to 12. This is supplemented by a system that provides students with remedial advice and content based on previously completed assignments while providing teachers with a dashboard containing statistics across all students and classrooms assigned to them.",
+                    "Name": "Lobster Inc",
+                    "Objective": "To develop and consume an API for an education platform to deliver customized learning support for grades 4 to 12. This is supplemented by a system that provides students with remedial advice and content based on previously completed assignments while providing teachers with a dashboard containing statistics across all students and classrooms assigned to them.",
                 },
                 {
-                    "name": "Votes for Schools",
-                    "objective": "To provide support and develop features for a React-based voting/polling and statistics system for British school system.",
+                    "Name": "Votes for Schools",
+                    "Objective": "To provide support and develop features for a React-based voting/polling and statistics system for British school system.",
                 }
             ],
             "Tech Stack": [
@@ -217,12 +217,12 @@ const Resume = {
             "To": "09-30-2016",
             "Projects": [
                 {
-                    "name": "INETBFA CRM Rebuild",
-                    "objective": "To be the sole developer responsible for merging the old I-Net Bridge (bespoke Visual Basic application) & McgregorBFA CRM (sugarCRM) systems into a single, consolidated CRM system"
+                    "Name": "INETBFA CRM Rebuild",
+                    "Objective": "To be the sole developer responsible for merging the old I-Net Bridge (bespoke Visual Basic application) & McgregorBFA CRM (sugarCRM) systems into a single, consolidated CRM system"
                 },
                 {
-                    "name": "Gizmos/EDGE",
-                    "objective": "To develop web-based, responsive, API-driven web components that delivers JSE data as highly configurable financial instruments that can be embedded on a 3rd party website."
+                    "Name": "Gizmos/EDGE",
+                    "Objective": "To develop web-based, responsive, API-driven web components that delivers JSE data as highly configurable financial instruments that can be embedded on a 3rd party website."
                 }
             ],
             "Tech Stack": [
