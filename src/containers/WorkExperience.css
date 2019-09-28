@@ -10,3 +10,8 @@
 .activeEmployer:last-child {
   border-bottom: 0px;
 }
+
+.timelineContainer {
+  padding: 20px;
+  position: relative;
+}

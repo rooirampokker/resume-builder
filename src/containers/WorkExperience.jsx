@@ -148,7 +148,7 @@ class WorkExperience extends Component {
             <Row
                 id={this.componentName + "RowTimeline"}>
                 <Col
-                    md={8}
+                    md={12}
                     className='textLabel label'>
                     <InputRange
                         draggableTrack
@@ -187,7 +187,9 @@ class WorkExperience extends Component {
     render() {
         return (
             <div className="container-fluid">
-                {this.generateTimeline()}
+                <div className={"timelineContainer"}>
+                    {this.generateTimeline()}
+                </div>
                 {this.checkItems(this.state.value)}
             </div>
         );
