@@ -16,9 +16,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         document.title = Resume.heading;
-        this.state = {
-
-        }
+        this.state = {}
         this.utils = new Utils();
     }
 
@@ -29,36 +27,41 @@ class App extends Component {
         workExperience:  WorkExperience,
         content:         Content
     };
+    getTabs() {
+        let active = 'active';
+        return Object.keys(Resume).map((sectionName, key) => {
+            const sectionID = this.utils.camelize(sectionName);
+            let TabContent  = '';
+            if (key !== 0) {
+                //Output to default 'Content' component if there's no explicit component already created - allows for easy addition of new sections to a default component
+                TabContent = (this.components[sectionID] !== undefined) ? this.components[sectionID] : this.components.content;
+                return (
+                    <Tab
+                        title    = {sectionName}
+                        eventKey = {sectionID}
+                        className = {active} //doesn't work - remove
+                        key      = {"tab-"+sectionID}>
+                        <TabContent
+                            id      = {sectionID}
+                            className = {active}  //doesn't work - remove
+                            details = {Resume[sectionName]}
+                        />
+                    </Tab>
 
-
+                )
+            } else {
+                active = false;
+                return false
+            };
+        });
+    }
 
     render() {
-        const tabs = Object.keys(Resume).map((sectionName, key) => {
-              const sectionID = this.utils.camelize(sectionName);
-              let TabContent = '';
-              if (key !== 0) {
-                  //Output to default 'Content' component if there's no explicit component already created - allows for easy addition of new sections to a default component
-                  TabContent = (this.components[sectionID] !== undefined) ? this.components[sectionID] : this.components.content;
-                  return (
-                          <Tab
-                              title   ={sectionName}
-                              eventKey={sectionID}
-                              key     ={"tab-"+sectionID}>
-                                <TabContent
-                                      id  = {sectionID}
-                                      details = {Resume[sectionName]}
-                                />
-                          </Tab>
-
-                  )
-              } else return false;
-        });
-
         return (
             <div className={"container"}>
                <legend>{Resume.heading}</legend>
                <Tabs defaultActiveKey="home" transition={false} id="tab">
-                        {tabs}
+                        {this.getTabs()}
                </Tabs>
             </div>
         );
