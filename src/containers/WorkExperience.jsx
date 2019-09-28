@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Utils from '../utils/Utils';
+import Formatting from '../utils/Formatting';
 import InputRange from 'react-input-range';
 import {Row, Col} from 'react-bootstrap';
 
@@ -11,6 +12,7 @@ class WorkExperience extends Component {
         super(props);
         this.details = props.details;
         this.utils = new Utils();
+        this.formatting = new Formatting({content: this.details});
         this.componentName = this.utils.camelize(this.constructor.name);
         this.initialRange = 5;
         this.earliestDate = 0;
@@ -53,92 +55,56 @@ class WorkExperience extends Component {
     /*
     *
     */
-    checkItems(value) {
+    checkItems() {
+        let value = this.state.value;
         let rangeStart = new Date(value.min).getFullYear();
-        let rangeEnd = new Date(value.max).getFullYear();
+        let rangeEnd   = new Date(value.max).getFullYear();
 
         return (Object.keys(this.details).map((item, index) => {
             let employmentStart = new Date(this.details[index].From).getFullYear();
-            let employmentEnd = new Date(this.details[index].To).getFullYear();
+            let employmentEnd   = new Date(this.details[index].To).getFullYear();
             if ((employmentStart >= rangeStart && (rangeEnd >= employmentStart || employmentStart <= rangeStart)) ||
                 (employmentStart <= rangeStart && rangeEnd <= employmentEnd)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
                 return (
-                    <div className={"activeEmployer"}
-                         key={"employer" + index}>
-                        {this.getItemsInRange(this.details[index])}
+                    <div className ={"employer-container"}
+                         key       ={"employer-container" + index}>
+                        {this.getItems(this.details[index])}
                     </div>
                 );
             } else return false;
         }));
     }
-
     /*
     *
     */
-    getItemsInRange(employer) {
-        return Object.keys(employer).map((label, val) => {
-            let formattedLabel = this.formatLabel(label, 2);
-            let formattedContent = this.formatContent(employer[label], 10);
+    getItems(employer) {
+        return Object.keys(employer).map((item, index) => {
+            let formattedLabel = this.formatting.formatLabel(item, 2);
+            let formattedContent = this.formatting.formatContent(employer[item], 10);
             return (
                 <Row
-                    key={"employerCol" + val}>
+                    id  = {"establishment-row-"+index}
+                    key = {"employer-row-" + index}>
                     {formattedLabel}
                     {formattedContent}
                 </Row>);
         });
     }
     /*
-    *
-     */
-    formatLabel(label, cols) {
-        return (
-            <Col
-                md={cols}
-                className={"label"}>
-                {label}
-            </Col>);
-    }
-    /*
-    *
-     */
-    formatContent(content, cols) {
-        if (!Array.isArray(content)) {
-            return (
-                <Col md={cols}
-                     className={"value"}>
-                    {content}
-                </Col>);
-        } else {
-            return (
-                <Col md={cols}>
-                    <ul>
-                        {this.formatList(content)}
-                    </ul>
-                </Col>
-            )
+    * Ensures that user doesn't drag the timeline out of range
+    */
+    validateRange(value) {
+        let maxYear = new Date(value.max).getFullYear();
+        let latestYear = new Date(this.latestDate).getFullYear();
+        if (value.min > this.earliestDate &&
+            maxYear <= latestYear) {
+            this.setState({
+                value: {
+                    min: value.min,
+                    max: value.max
+                }
+            })
         }
-    }
-    /*
-    *
-     */
-    formatList(listContent) {
-        return Object.keys(listContent).map((index) => {
-            if (typeof listContent[index] == 'string') {
-                return (<li className={"listItems"}
-                            key={"list" + index}>
-                                {listContent[index]}
-                </li>);
-            } else {
-                return Object.keys(listContent[index]).map((label, key) => {
-                       let thisLabel = this.formatLabel(label, 2);
-                       let thisValue = this.formatContent(listContent[index][label], 5);
-                       return (<span key={"object-"+key}>
-                               {thisLabel}
-                               {thisValue}
-                            </span>)
-                 })
-            }
-        });
     }
     /*
     * We need to determine the start and end dates here - get start and end dates for all listed items in supplied data, then find earliest and latest date as input
@@ -164,33 +130,13 @@ class WorkExperience extends Component {
         );
     }
 
-    /*
-    * Ensures that user doesn't drag the timeline out of range
-    */
-    validateRange(value) {
-        let maxYear = new Date(value.max).getFullYear();
-        let latestYear = new Date(this.latestDate).getFullYear();
-        if (value.min > this.earliestDate &&
-            maxYear <= latestYear) {
-            this.setState({
-                value: {
-                    min: value.min,
-                    max: value.max
-                }
-            })
-        }
-    }
-
-    /*
-    *
-    */
     render() {
         return (
-            <div className="container-fluid">
-                <div className={"timelineContainer"}>
+            <div className={this.componentName+" container"}>
+                <div className={"timeline-container"}>
                     {this.generateTimeline()}
                 </div>
-                {this.checkItems(this.state.value)}
+                {this.checkItems()}
             </div>
         );
     }

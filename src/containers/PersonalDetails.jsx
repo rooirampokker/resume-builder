@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
+import Formatting from '../utils/Formatting';
 import Utils from '../utils/Utils';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 class PersonalDetails extends Component {
     constructor(props) {
         super(props);
-        this.value    = props.value;
-        this.details  = props.details;
-        this.utils    = new Utils();
+        this.value         = props.value;
+        this.details       = props.details;
+        this.formatting    = new Formatting({content: props.details});
+        this.utils         = new Utils();
         this.componentName = this.utils.camelize(this.constructor.name);
     }
     /*
     *
     */
-    buildRow() {
-        return Object.keys(this.details).map((value, key) => {
+    getItems() {
+        return Object.keys(this.details).map((item, index) => {
+            let label   = this.formatting.formatLabel(item, 2);
+            let content = this.formatting.formatContent(this.details[item], 10);
             return (
                 <Row
-                    id       = {this.componentName+"Row"+key}
-                    key      = {this.componentName+"Content-" + key}>
-                    <Col
-                        md={2}>
-                        {value}
-                    </Col>
-                    <Col  md={10}>
-                        {this.details[value]}
-                    </Col>
-                </Row>
-            );
+                    id       = {"personal-row-"+index}
+                    key      = {this.componentName+"-content-" + item}>
+                    {label}
+                    {content}
+                </Row>);
         });
     }
     /*
@@ -35,9 +33,9 @@ class PersonalDetails extends Component {
     */
     render() {
         return (
-            <div className={"container"}
-                 id={this.componentName+"Container"}>
-                {this.buildRow()}
+            <div className={this.componentName+" container"}
+                 id={this.componentName+" container"}>
+                {this.getItems()}
             </div>
         )
     }

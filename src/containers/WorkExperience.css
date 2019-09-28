@@ -1,17 +1,12 @@
-.activeEmployer {
+.employer-container {
   padding: 20px;
   border-bottom: 1px solid #c1c1c1;
 }
-
-.activeEmployer .label {
-  font-weight: bold;
-}
-
-.activeEmployer:last-child {
+.employer-container:last-child {
   border-bottom: 0px;
 }
 
-.timelineContainer {
+.timeline-container {
   padding: 20px;
   position: relative;
 }

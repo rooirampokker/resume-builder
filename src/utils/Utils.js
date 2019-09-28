@@ -51,7 +51,5 @@ class Utils {//thank you stack-overflow for this bountiful harvest
     monthsAgo(inputDate, monthsAgo) {
         return inputDate.setMonth(inputDate.getMonth() - monthsAgo);
     }
-
-
 }
 export default Utils;

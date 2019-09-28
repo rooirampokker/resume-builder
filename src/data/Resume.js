@@ -83,16 +83,15 @@ const Resume = {
     },
     "Education": [
         {
-            "Name": "ZCE (Zend Certified Engineer)",
-            "dateAchieved": "04-01-2006",
-            "description": "Professional Qualification at CTU Training Solutions in Pretoria, South Africa (Gauteng)",
-            "subjects": [],
+            "Establishment": "ZCE (Zend Certified Engineer)",
+            "Date achieved": "04-01-2006",
+            "Description": "Professional Qualification at CTU Training Solutions in Pretoria, South Africa (Gauteng)",
         },
         {
-            "Name": "Computer Training Institute (CTI)",
-            "dateAchieved": "12-01-2002",
-            "description": "Comprehensive Programming, validated by Cambridge University",
-            "subjects": [
+            "Establishment": "Computer Training Institute (CTI)",
+            "Date achieved": "12-01-2002",
+            "Description": "Comprehensive Programming, validated by Cambridge University",
+            "Subjects": [
                 "Programming: C",
                 "Programming: C++",
                 "DHTML (HTML, CSS and Javascript)",
@@ -104,16 +103,15 @@ const Resume = {
 
         },
         {
-            "Name": "CompTia A+",
-            "dateAchieved": "10/2000",
-            "description": "Certificate at IT Intellect in Durban, South Africa (KwaZulu Natal)",
-            "subjects": [],
+            "Establishment": "CompTia A+",
+            "Date achieved": "10/2000",
+            "Description": "Certificate at IT Intellect in Durban, South Africa (KwaZulu Natal)",
         },
         {
-            "Name": "Kokstad College",
-            "dateAchieved": "12-01-2002",
-            "description": "National Senior Certificate",
-            "subjects": [
+            "Establishment": "Kokstad College",
+            "Date achieved": "12-01-2002",
+            "Description": "National Senior Certificate",
+            "Subjects": [
                 "Afrikaans",
                 "English",
                 "Geography",
