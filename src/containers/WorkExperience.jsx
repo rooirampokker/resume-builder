@@ -12,9 +12,9 @@ class WorkExperience extends Component {
         this.details  = props.details;
         this.utils    = new Utils();
         this.componentName = this.utils.camelize(this.constructor.name);
+        this.initialRange = 5;
         this.earliestDate = 0;
         this.latestDate = 0;
-        this.employers = [];
         this.state = {
             latestDate: 0,
             earliestDate: 0,
@@ -41,7 +41,7 @@ class WorkExperience extends Component {
       });
       this.setState({
         value: {
-          min: this.latestDate - (31536000 * 1000) * 5,
+          min: this.latestDate - (31536000 * 1000) * this.initialRange,
           max: this.latestDate,
         },
         latestDate: this.latestDate,
@@ -58,9 +58,9 @@ class WorkExperience extends Component {
        return (Object.keys(this.details).map((item, index) => {
            let employmentStart = new Date(this.details[index].From).getFullYear();
            let employmentEnd   = new Date(this.details[index].To).getFullYear();
-           if ((employmentStart >= rangeStart && employmentStart <= rangeEnd) ||
-             (rangeStart >= employmentStart && rangeEnd <= employmentEnd) ||
-             (employmentStart >= rangeStart && employmentStart <= rangeStart)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
+           if ((employmentStart >= rangeStart && (employmentStart <= rangeEnd || employmentStart <= rangeStart)) ||
+               (rangeStart >= employmentStart && rangeEnd <= employmentEnd)
+             ) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
                return (
                    <div className={"activeEmployer"}
                         key={"employer"+index}>
@@ -70,27 +70,47 @@ class WorkExperience extends Component {
            } else return false;
         }));
     }
-/*
-*
-*/
+    /*
+    *
+    */
     getActiveEmployer(employer) {
+        console.clear();
         return Object.keys(employer).map((label, val) => {
+            let formattedLabel = this.formatLabel(label);
+            let formattedContent = this.formatContent(employer[label]);
             if (!Array.isArray(employer[label])) {
                 return (
                     <Row
                         key = {"employerCol"+val}>
-                        <Col
-                            md={2}
-                            className={"label"}>
-                            {label}
-                        </Col>
-                        <Col  md={10}
-                              className={"value"}>
-                            {employer[label]}
-                        </Col>
+                        {formattedLabel}
+                        {formattedContent}
                     </Row>);
-            } else return false;
+            } else {
+                return false;
+                //return this.getSubElements(employer, label, val);
+            }
         });
+    }
+    /*
+    *
+     */
+    formatLabel(label) {
+        return(
+            <Col
+                md={2}
+                className={"label"}>
+                {label}
+            </Col>);
+    }
+    /*
+    *
+     */
+    formatContent(content) {
+        return (
+            <Col  md={10}
+                  className={"value"}>
+                {content}
+            </Col>);
     }
 /*
 * Ensures that user doesn't drag the timeline out of range
