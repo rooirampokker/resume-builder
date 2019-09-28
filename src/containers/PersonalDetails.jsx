@@ -16,13 +16,13 @@ class PersonalDetails extends Component {
     *
     */
     getItems() {
-        return Object.keys(this.details).map((item, index) => {
-            let label   = this.formatting.formatLabel(item, 2);
-            let content = this.formatting.formatContent(this.details[item], 10);
+        return Object.keys(this.details).map((index) => {
+            let label   = this.formatting.formatLabel(index, 2);
+            let content = this.formatting.formatContent(this.details[index], 10);
             return (
                 <Row
                     id       = {"personal-row-"+index}
-                    key      = {this.componentName+"-content-" + item}>
+                    key      = {this.componentName+"-content-" + index}>
                     {label}
                     {content}
                 </Row>);

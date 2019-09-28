@@ -6,10 +6,10 @@ import Formatting from "../utils/Formatting";
 class Education extends Component {
     constructor(props) {
         super(props);
-        this.value    = props.value;
-        this.details  = props.details;
-        this.formatting = new Formatting({content: this.details});
-        this.utils    = new Utils();
+        this.value         = props.value;
+        this.details       = props.details;
+        this.formatting    = new Formatting({content: this.details});
+        this.utils         = new Utils();
         this.componentName = this.utils.camelize(this.constructor.name);
     }
     /*

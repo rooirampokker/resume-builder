@@ -1,3 +1,8 @@
+/*
+*
+* DEFAULT CLASS - TOP-LEVEL JSON ELEMENTS WITH NO MATCHING CONTAINER FILE RENDERS HERE
+*
+ */
 import Formatting from '../utils/Formatting';
 import React, { Component } from 'react';
 import Utils from '../utils/Utils';
@@ -8,21 +13,21 @@ class Content extends Component {
         super(props);
         this.value         = props.value;
         this.details       = props.details;
-        this.formatting    = new Formatting({content: props.details});
+        this.formatting    = new Formatting({content: this.details});
         this.utils         = new Utils();
         this.componentName = this.utils.camelize(this.constructor.name);
     }
 /*
 *
 */
-    buildRow() {
-        return Object.keys(this.details).map((item, index) => {
-            let label   = this.formatting.formatLabel(item, 2);
-            let content = this.formatting.formatContent(this.details[item], 10);
+    getItems() {
+        return Object.keys(this.details).map((index) => {
+            let label   = this.formatting.formatLabel(index, 2);
+            let content = this.formatting.formatContent(this.details[index], 10);
             return (
                 <Row
-                    id       = {this.componentName+"Row"+index}
-                    key      = {this.componentName+"Content-" + item}>
+                    id  = {"item-row-"+index}
+                    key = {this.componentName+"-content-" + index}>
                     {label}
                     {content}
                 </Row>);
@@ -35,7 +40,7 @@ class Content extends Component {
         return (
             <div className={"container"}
                  id={this.componentName+"Container"}>
-                {this.buildRow()}
+                {this.getItems()}
             </div>
         )
     }
