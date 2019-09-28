@@ -74,22 +74,22 @@ class WorkExperience extends Component {
     *
     */
     getActiveEmployer(employer) {
-        console.clear();
         return Object.keys(employer).map((label, val) => {
             let formattedLabel = this.formatLabel(label);
             let formattedContent = this.formatContent(employer[label]);
-            if (!Array.isArray(employer[label])) {
                 return (
                     <Row
                         key = {"employerCol"+val}>
                         {formattedLabel}
                         {formattedContent}
                     </Row>);
-            } else {
-                return false;
-                //return this.getSubElements(employer, label, val);
-            }
         });
+    }
+    /*
+    *
+     */
+    formatList(listContent) {
+        JSON.stringify(listContent)
     }
     /*
     *
@@ -106,11 +106,19 @@ class WorkExperience extends Component {
     *
      */
     formatContent(content) {
-        return (
-            <Col  md={10}
-                  className={"value"}>
-                {content}
-            </Col>);
+        if (!Array.isArray(content)) {
+            return (
+                <Col md={10}
+                     className={"value"}>
+                    {content}
+                </Col>);
+        } else {
+            let list = this.formatList(content);
+            return (
+               JSON.stringify(content)
+            )
+}
+
     }
 /*
 * Ensures that user doesn't drag the timeline out of range
