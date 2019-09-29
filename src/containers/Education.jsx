@@ -34,7 +34,7 @@ class Education extends Component {
                 let content = this.formatting.formatContent(institution[index], 10);
                 return (
                     <Row
-                        id  = {"establishment-row-"+index}
+                        id  = {"establishment-row-" + index}
                         key = {this.componentName+"-content-" + index}>
                         {label}
                         {content}

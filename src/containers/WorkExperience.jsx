@@ -65,7 +65,7 @@ class WorkExperience extends Component {
                 (employmentStart <= rangeStart && rangeEnd <= employmentEnd)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
                 return (
                     <div className = {"employer-container"}
-                         key       = {"employer-container" + index}>
+                         key       = {"employer-container"+index}>
                         {this.getItems(this.details[index])}
                     </div>
                 );
@@ -81,8 +81,8 @@ class WorkExperience extends Component {
             let formattedContent = this.formatting.formatContent(employer[index], 10);
             return (
                 <Row
-                    id  = {"establishment-row-"+index}
-                    key = {"employer-row-" + index}>
+                    id  = {"employer-row-"+index}
+                    key = {this.componentName+"-content-"+index}>
                     {formattedLabel}
                     {formattedContent}
                 </Row>);
