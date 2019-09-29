@@ -3,21 +3,19 @@ import Utils from '../utils/Utils';
 import Formatting from '../utils/Formatting';
 import InputRange from 'react-input-range';
 import {Row, Col} from 'react-bootstrap';
-
-import './WorkExperience.css';
 import ('react-input-range/lib/css/index.css');
 
 class WorkExperience extends Component {
     constructor(props) {
         super(props);
-        this.details = props.details;
-        this.utils = new Utils();
-        this.formatting = new Formatting({content: this.details});
+        this.details       = props.details;
+        this.utils         = new Utils();
+        this.formatting    = new Formatting({content: this.details});
         this.componentName = this.utils.camelize(this.constructor.name);
-        this.initialRange = 5;
-        this.earliestDate = 0;
-        this.latestDate = 0;
-        this.state = {
+        this.initialRange  = 5;
+        this.earliestDate  = 0;
+        this.latestDate    = 0;
+        this.state         = {
             latestDate: 0,
             earliestDate: 0,
             value: {
@@ -37,10 +35,10 @@ class WorkExperience extends Component {
     */
     initDateRange() {
         Object.keys(this.details).forEach((index) => {
-            this.fromDate = this.utils.toTimeStamp(this.details[index].From);
-            this.toDate = this.utils.toTimeStamp(this.details[index].To);
+            this.fromDate     = this.utils.toTimeStamp(this.details[index].From);
+            this.toDate       = this.utils.toTimeStamp(this.details[index].To);
             this.earliestDate = ((this.fromDate <= this.earliestDate) || this.earliestDate === 0) ? this.fromDate : this.earliestDate;
-            this.latestDate = (this.toDate >= this.latestDate || this.latestDate === 0) ? this.toDate : this.latestDate;
+            this.latestDate   = (this.toDate >= this.latestDate || this.latestDate === 0) ? this.toDate : this.latestDate;
         });
         this.setState({
             value: {
@@ -55,8 +53,8 @@ class WorkExperience extends Component {
     /*
     *
     */
-    checkItems() {
-        let value = this.state.value;
+    filterItems() {
+        let value      = this.state.value;
         let rangeStart = new Date(value.min).getFullYear();
         let rangeEnd   = new Date(value.max).getFullYear();
 
@@ -66,8 +64,8 @@ class WorkExperience extends Component {
             if ((employmentStart >= rangeStart && (rangeEnd >= employmentStart || employmentStart <= rangeStart)) ||
                 (employmentStart <= rangeStart && rangeEnd <= employmentEnd)) { //caters for overlap when you started at a new company outside the selected range, but left for another company inside said range
                 return (
-                    <div className ={"employer-container"}
-                         key       ={"employer-container" + index}>
+                    <div className = {"employer-container"}
+                         key       = {"employer-container" + index}>
                         {this.getItems(this.details[index])}
                     </div>
                 );
@@ -94,7 +92,7 @@ class WorkExperience extends Component {
     * Ensures that user doesn't drag the timeline out of range
     */
     validateRange(value) {
-        let maxYear = new Date(value.max).getFullYear();
+        let maxYear    = new Date(value.max).getFullYear();
         let latestYear = new Date(this.latestDate).getFullYear();
         if (value.min > this.earliestDate &&
             maxYear <= latestYear) {
@@ -118,11 +116,11 @@ class WorkExperience extends Component {
                     className='textLabel label'>
                     <InputRange
                         draggableTrack
-                        step={31536000 * 1000}
-                        maxValue={this.state.latestDate}
-                        minValue={this.state.earliestDate}
-                        value={this.state.value}
-                        onChange={value => this.validateRange(value)}
+                        step       ={31536000 * 1000}
+                        maxValue   ={this.state.latestDate}
+                        minValue   ={this.state.earliestDate}
+                        value      ={this.state.value}
+                        onChange   ={value => this.validateRange(value)}
                         //onChangeComplete={value => this.showSectionInRange(value)}
                         formatLabel={value => new Date(value).toLocaleDateString("en-US", {year: 'numeric'})}/>
                 </Col>
@@ -136,7 +134,7 @@ class WorkExperience extends Component {
                 <div className={"timeline-container"}>
                     {this.generateTimeline()}
                 </div>
-                {this.checkItems()}
+                {this.filterItems()}
             </div>
         );
     }

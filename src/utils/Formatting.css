@@ -5,3 +5,16 @@
 .content {
     color: #000000;
 }
+
+.employer-container, .qualification-container {
+    padding: 20px;
+    border-bottom: 1px solid #c1c1c1;
+}
+.employer-container:last-child, .qualification-container:last-child {
+    border-bottom: 0px;
+}
+
+.timeline-container {
+    padding: 20px;
+    position: relative;
+}

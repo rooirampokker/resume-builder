@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Gauge from '../components/charts/Gauge';
 import Utils from '../utils/Utils';
-import './SkillsMatrix.css'
+import './SkillsMatrix.css';
 
 class SkillsMatrix extends Component {
     constructor (props) {

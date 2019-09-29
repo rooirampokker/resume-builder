@@ -15,11 +15,11 @@ class Education extends Component {
     /*
     *
     */
-    checkItems() {
+    filterItems() {
         return (Object.keys(this.details).map((item, index) => {
                 return (
-                    <div className ={"qualification-container"}
-                         key       ={"qualification-container" + index}>
+                    <div className = {"qualification-container"}
+                         key       = {"qualification-container" + index}>
                         {this.getItems(this.details[index])}
                     </div>
                 );
@@ -30,7 +30,7 @@ class Education extends Component {
     */
         getItems(institution) {
             return Object.keys(institution).map((index) => {
-                let label = this.formatting.formatLabel(index, 2);
+                let label   = this.formatting.formatLabel(index, 2);
                 let content = this.formatting.formatContent(institution[index], 10);
                 return (
                     <Row
@@ -43,9 +43,9 @@ class Education extends Component {
         }
     render() {
         return (
-            <div className={this.componentName+" container"}
-                 id={this.componentName+" container"}>
-                {this.checkItems()}
+            <div className = {this.componentName+" container"}
+                 id        = {this.componentName+" container"}>
+                {this.filterItems()}
             </div>
         )
     }

@@ -30,7 +30,7 @@ const Resume = {
             "ES6": 3,
             "Foundation": 3,
             "Underscore/Lodash": 3,
-            "React": 3,
+            "React": 3.5,
             //"Angular": 1,
         },
         "Dev-Ops": {

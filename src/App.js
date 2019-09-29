@@ -15,10 +15,10 @@ import Resume from './data/Resume.js';
 class App extends Component {
     constructor(props) {
         super(props);
-        document.title = Resume.heading;
-        this.state = {}
+        document.title        = Resume.heading;
+        this.state            = {}
         this.defaultActiveKey = "personalDetails";
-        this.utils = new Utils();
+        this.utils            = new Utils();
     }
 
     components = {
@@ -44,7 +44,6 @@ class App extends Component {
                             details = {Resume[sectionName]}
                         />
                     </Tab>
-
                 )
             } else return false;
         });
