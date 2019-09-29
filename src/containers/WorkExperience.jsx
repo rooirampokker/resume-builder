@@ -36,7 +36,7 @@ class WorkExperience extends Component {
     *
     */
     initDateRange() {
-        Object.keys(this.details).forEach((item, index) => {
+        Object.keys(this.details).forEach((index) => {
             this.fromDate = this.utils.toTimeStamp(this.details[index].From);
             this.toDate = this.utils.toTimeStamp(this.details[index].To);
             this.earliestDate = ((this.fromDate <= this.earliestDate) || this.earliestDate === 0) ? this.fromDate : this.earliestDate;
@@ -60,7 +60,7 @@ class WorkExperience extends Component {
         let rangeStart = new Date(value.min).getFullYear();
         let rangeEnd   = new Date(value.max).getFullYear();
 
-        return (Object.keys(this.details).map((item, index) => {
+        return (Object.keys(this.details).map((index) => {
             let employmentStart = new Date(this.details[index].From).getFullYear();
             let employmentEnd   = new Date(this.details[index].To).getFullYear();
             if ((employmentStart >= rangeStart && (rangeEnd >= employmentStart || employmentStart <= rangeStart)) ||
@@ -78,9 +78,9 @@ class WorkExperience extends Component {
     *
     */
     getItems(employer) {
-        return Object.keys(employer).map((item, index) => {
-            let formattedLabel = this.formatting.formatLabel(item, 2);
-            let formattedContent = this.formatting.formatContent(employer[item], 10);
+        return Object.keys(employer).map((index) => {
+            let formattedLabel = this.formatting.formatLabel(index, 2);
+            let formattedContent = this.formatting.formatContent(employer[index], 10);
             return (
                 <Row
                     id  = {"establishment-row-"+index}

@@ -17,6 +17,7 @@ class App extends Component {
         super(props);
         document.title = Resume.heading;
         this.state = {}
+        this.defaultActiveKey = "personalDetails";
         this.utils = new Utils();
     }
 
@@ -28,7 +29,6 @@ class App extends Component {
         content:         Content
     };
     getTabs() {
-        let active = 'active';
         return Object.keys(Resume).map((sectionName, key) => {
             const sectionID = this.utils.camelize(sectionName);
             let TabContent  = '';
@@ -39,20 +39,14 @@ class App extends Component {
                     <Tab
                         title    = {sectionName}
                         eventKey = {sectionID}
-                        className = {active} //doesn't work - remove
                         key      = {"tab-"+sectionID}>
                         <TabContent
-                            id      = {sectionID}
-                            className = {active}  //doesn't work - remove
                             details = {Resume[sectionName]}
                         />
                     </Tab>
 
                 )
-            } else {
-                active = false;
-                return false
-            };
+            } else return false;
         });
     }
 
@@ -60,7 +54,7 @@ class App extends Component {
         return (
             <div className={"container"}>
                <legend>{Resume.heading}</legend>
-               <Tabs defaultActiveKey="home" transition={false} id="tab">
+               <Tabs defaultActiveKey={this.defaultActiveKey} transition={false} id="tab">
                         {this.getTabs()}
                </Tabs>
             </div>

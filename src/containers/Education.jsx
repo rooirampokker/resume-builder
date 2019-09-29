@@ -28,16 +28,16 @@ class Education extends Component {
     /*
     *
     */
-        getItems(employer) {
-            return Object.keys(employer).map((index) => {
-                let formattedLabel = this.formatting.formatLabel(index, 2);
-                let formattedContent = this.formatting.formatContent(employer[index], 10);
+        getItems(institution) {
+            return Object.keys(institution).map((index) => {
+                let label = this.formatting.formatLabel(index, 2);
+                let content = this.formatting.formatContent(institution[index], 10);
                 return (
                     <Row
                         id  = {"establishment-row-"+index}
                         key = {this.componentName+"-content-" + index}>
-                        {formattedLabel}
-                        {formattedContent}
+                        {label}
+                        {content}
                     </Row>);
             });
         }
