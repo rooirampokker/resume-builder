@@ -6,21 +6,22 @@ import './SkillsMatrix.css';
 class SkillsMatrix extends Component {
     constructor (props) {
         super(props);
-        this.details     = props.details;
-        this.id          = props.id;
-        this.trackData   = [];
-        this.trackBG     = [];
-        this.trackBGOpacity = 0.2;
-        this.wideTrackWidth = "14px";
+        console.log(props);
+			  this.utils            = new Utils();
+        this.details          = props.details;
+			  this.componentName    = this.utils.camelize(this.constructor.name);
+        this.trackData        = [];
+        this.trackBG          = [];
+        this.trackBGOpacity   = 0.2;
+        this.wideTrackWidth   = "14px";
         this.narrowTrackWidth = "7px";
-        this.sectionAvg  = 0;
-        this.sectionWght = 0;
-        this.totalItems  = 0;
-        this.totalScore  = 0;
-        this.innerRadiusMod = 0;
-        this.percDecrement = 10; //each band should be 5% smaller than previous
-        this.utils         = new Utils();
-        this.trackWidth  = '10px';
+        this.sectionAvg       = 0;
+        this.sectionWght      = 0;
+        this.totalItems       = 0;
+        this.totalScore       = 0;
+        this.innerRadiusMod   = 0;
+        this.percDecrement    = 10; //each band should be 5% smaller than previous
+        this.trackWidth       = '10px';
     }
 /*
 * //gets sections - 'Front End', 'Back End', Dev Ops', etc
@@ -30,7 +31,7 @@ class SkillsMatrix extends Component {
             let subDetailsObj  = this.details[sectionName];
             this.setSubSection(subDetailsObj, sectionName);
             return (
-                <div className="col-sm-6 col-md-4 skillContainer"
+                <div className={"col-sm-6 col-md-4 "+this.componentName+"Chart"}
                      key = {"gauge-"+sectionName+key}>
                     <Gauge
                         name       = {sectionName}
@@ -108,7 +109,7 @@ class SkillsMatrix extends Component {
         return (
             <div
                 className="tab-content"
-                id={"nav-"+this.id}>
+								id={this.componentName+"-container"}>
                 <div className="row">
                     {this.setSection()}
                 </div>

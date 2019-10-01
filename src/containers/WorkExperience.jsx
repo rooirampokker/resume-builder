@@ -130,7 +130,8 @@ class WorkExperience extends Component {
 
     render() {
         return (
-            <div className={this.componentName+" container"}>
+            <div className={this.componentName+" container"}
+                 id={this.componentName+"-container"}>
                 <div className={"timeline-container"}>
                     {this.generateTimeline()}
                 </div>

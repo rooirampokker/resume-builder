@@ -44,7 +44,7 @@ class Education extends Component {
     render() {
         return (
             <div className = {this.componentName+" container"}
-                 id        = {this.componentName+" container"}>
+                 id        = {this.componentName+"-container"}>
                 {this.filterItems()}
             </div>
         )
