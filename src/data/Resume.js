@@ -126,17 +126,34 @@ const Resume = {
         "Organisation": "Brave Digital",
         "Role": "Full Stack Developer",
         "From": "05-01-2019",
-        "To": "09-25-2019",
+        "To": "05-01-2020",
         "Projects": [
+          {
+              "Name": "Homecorp",
+              "Objective": "Scoping & delivering an eCommerce platform",
+          },
+          {
+             "Name": "Trackmatic",
+             "Objective": "Assist a 3rd party development team with component development of a react/node-based logistics management system or internal use",
+          },
+          {
+             "Name": "Accenture Digital Innovation Tracker (https://insights.accenture.com/?mkto=DIT)",
+             "Objective": "Deliver a bespoke JS/JQuery system to serve, cache and easily navigate large volumes of articles and general content"
+          }
 
         ],
         "Tech Stack": [
-
+            "Wordpress (single and multi-site)",
+            "Woocommerce",
+            "Payfast payment gateway integration (bespoke host-to-host integration and redirect with 3D secure)",
+            "Google Maps GeoCoding service",
+            "React",
+            "Redux",
         ],
         "Duties": [
 
         ],
-        "Reason for leaving": "Imigration"
+        "Reason for leaving": "Immigration"
       },
         {
             "Organisation": "Kantar Millward Brown",
