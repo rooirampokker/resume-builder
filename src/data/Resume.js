@@ -11,7 +11,7 @@ const Resume = {
         "Back-End": {
             "SQL": 4.2,
             "PHP": 4.1,
-            //"Laravel 2+": 2,
+            "Laravel 2+": 3,
             "Ruby on Rails": 3.2,
             "CakePHP": 3,
             "Perl": 3,
@@ -126,25 +126,43 @@ const Resume = {
         "Organisation": "Brave Digital",
         "Role": "Full Stack Developer",
         "From": "05-01-2019",
-        "To": "05-01-2020",
+        "To": "01-08-2020",
         "Projects": [
+          {
+              "Name": "Moola4Me",
+              "Objective": "Database design and development and building of a Laravel-based API development for a bespoke survey system to be consumed by Flutter backend",
+          },
+          {
+              "Name": "Frozen for you /By Word of Mouth",
+              "Objective": "Import users from 3rd party Excel export file into Wordpress e-commerce sollution, including all all user data, order history and legacy products. Export all user data and order history into XML file for 3rd party import. Extend site with new features",
+          },
+          {
+            "Name": "Knool",
+            "Objective": "Build and extend a recruiter/recruitment network platform based Wordpress Buddypress/Buddyboss",
+            "URL": "https://knool.com/"
+          },
           {
               "Name": "Homecorp",
               "Objective": "Scoping & delivering an eCommerce platform",
+              "URL": "http://homecorp.africa"
           },
           {
              "Name": "Trackmatic",
              "Objective": "Assist a 3rd party development team with component development of a react/node-based logistics management system or internal use",
           },
           {
-             "Name": "Accenture Digital Innovation Tracker (https://insights.accenture.com/?mkto=DIT)",
-             "Objective": "Deliver a bespoke JS/JQuery system to serve, cache and easily navigate large volumes of articles and general content"
+             "Name": "Accenture Digital Innovation Tracker",
+             "Objective": "Deliver a bespoke JS/JQuery system to serve, cache and easily navigate large volumes of articles and general content",
+             "URL": "https://insights.accenture.com/?mkto=DIT"
           }
 
         ],
         "Tech Stack": [
             "Wordpress (single and multi-site)",
             "Woocommerce",
+            "Laravel",
+            "Postgres",
+            "MariahDB/MySQL",
             "Payfast payment gateway integration (bespoke host-to-host integration and redirect with 3D secure)",
             "Google Maps GeoCoding service",
             "React",

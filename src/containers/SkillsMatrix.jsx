@@ -6,10 +6,9 @@ import './SkillsMatrix.css';
 class SkillsMatrix extends Component {
     constructor (props) {
         super(props);
-        console.log(props);
-			  this.utils            = new Utils();
+        this.utils            = new Utils();
         this.details          = props.details;
-			  this.componentName    = this.utils.camelize(this.constructor.name);
+        this.componentName    = this.utils.camelize(this.constructor.name);
         this.trackData        = [];
         this.trackBG          = [];
         this.trackBGOpacity   = 0.2;
