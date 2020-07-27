@@ -78,8 +78,6 @@ class WorkExperience extends Component {
     */
     getItems(employer) {
         return Object.keys(employer).map((index) => {
-            let formattedContent = '';
-            let formattedLabel ='';
             if (index === "Projects") {
                 return this.setEmploymentProjects(employer, index);
             } else {
@@ -112,7 +110,8 @@ class WorkExperience extends Component {
             projectAttribute = this.setProjectAttribute(projects, project);
             return (
                 <div
-                    className = "project">
+                    className = "project"
+                    key       = {this.componentName+"-project-"+project}>
                     {projectAttribute}
                 </div>
             );
