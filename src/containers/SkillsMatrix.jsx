@@ -30,7 +30,7 @@ class SkillsMatrix extends Component {
             let subDetailsObj  = this.details[sectionName];
             this.setSubSection(subDetailsObj, sectionName);
             return (
-                <>
+                <React.Fragment key={key}>
                     <div className={"col-sm-6 col-md-6 "+this.componentName+"Chart"}
                          key = {"gauge-"+sectionName+key}
                     >
@@ -40,10 +40,11 @@ class SkillsMatrix extends Component {
                             dataBG     = {this.trackBG}
                             trackWidth = {this.trackWidth}/>
                     </div>
-                    <div id        = {"customLegend_"+sectionName.replace(/\//g, '')}
-                         className = {"col-sm-6 col-md-6 legend-pane"}>
+                    <div id        = {"customLegend_"+key}
+                         className = {"col-sm-6 col-md-6 legend-pane"}
+                         key       = {"legend-"+key}>
                     </div>
-                </>
+                </React.Fragment>
             );
         });
     }

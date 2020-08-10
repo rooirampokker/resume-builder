@@ -22,7 +22,7 @@ class Gauge extends Component {
 
  */
     afterChartCreated(chart) {
-            var legendId = "customLegend_"+chart.title.textStr.replace(/\//g, '');
+            var legendId = "customLegend_"+chart.index;
 
             var legend = $('#'+legendId);
             $.each(chart.series, function (j, data) {
