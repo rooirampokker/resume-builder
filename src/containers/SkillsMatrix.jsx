@@ -31,7 +31,7 @@ class SkillsMatrix extends Component {
             this.setSubSection(subDetailsObj, sectionName);
             return (
                 <>
-                    <div className={"col-sm-6 col-md-4 "+this.componentName+"Chart"}
+                    <div className={"col-sm-6 col-md-6 "+this.componentName+"Chart"}
                          key = {"gauge-"+sectionName+key}
                     >
                         <Gauge
@@ -40,8 +40,8 @@ class SkillsMatrix extends Component {
                             dataBG     = {this.trackBG}
                             trackWidth = {this.trackWidth}/>
                     </div>
-                    <div id={"customLegend_"+sectionName.replace(/\//g, '')}>
-
+                    <div id        = {"customLegend_"+sectionName.replace(/\//g, '')}
+                         className = {"col-sm-6 col-md-6 legend-pane"}>
                     </div>
                 </>
             );

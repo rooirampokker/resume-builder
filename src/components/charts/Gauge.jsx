@@ -27,31 +27,24 @@ class Gauge extends Component {
             var legend = $('#'+legendId);
             $.each(chart.series, function (j, data) {
                 var legendColor = data.userOptions.borderColor;
-                legend.append('<div class="item"><div class="symbol" style="background-color:'+data.userOptions.borderColor+'"></div><div class="legendTitle" id="">' + data.name + '</div></div>');
+                legend.append('<div class="item">' +
+                              '<div class="symbol" style="background-color:'+legendColor+'"></div>' +
+                              '<div class="legend-title" id="">' + data.name + '</div>' +
+                              '</div>');
 
         });
 
         $('#'+legendId+' .item').click(function() {
-            var itemIndex    = $(this).index();
+            var itemIndex = $(this).index();
 
             $.each(chart.series, function (key, value) {
-                    chart.series[key].setVisible(true)
+                chart.series[key].setVisible(false);
             });
-
-            $.each(chart.series, function (key, value) {
-                if (key != itemIndex) {
-                    if (chart.series[key].visible) {
-                        chart.series[key].setVisible(false);
-                    } else {
-                        chart.series[key].setVisible(true);
-                    }
-                } else {
-                    chart.series[key].setVisible(true);
-                }
-            });
+            chart.series[itemIndex].setVisible(true);
         });
-
     }
+
+
 /*
 *
  */
