@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
-import HighchartsReact from 'highcharts-react-official'
+import HighchartsReact from 'highcharts-react-official';
+import $ from "jquery";
 
 var Highcharts = require('highcharts');
 
@@ -14,6 +15,42 @@ class Gauge extends Component {
         this.data       = props.data;
         this.dataBG     = props.dataBG;
         this.trackWidth = props.trackWidth;
+        this.highcharts = Highcharts;
+        this.afterChartCreated = this.afterChartCreated.bind(this);
+    }
+/*
+
+ */
+    afterChartCreated(chart) {
+            var legendId = "customLegend_"+chart.title.textStr.replace(/\//g, '');
+
+            var legend = $('#'+legendId);
+            $.each(chart.series, function (j, data) {
+                var legendColor = data.userOptions.borderColor;
+                legend.append('<div class="item"><div class="symbol" style="background-color:'+data.userOptions.borderColor+'"></div><div class="legendTitle" id="">' + data.name + '</div></div>');
+
+        });
+
+        $('#'+legendId+' .item').click(function() {
+            var itemIndex    = $(this).index();
+
+            $.each(chart.series, function (key, value) {
+                    chart.series[key].setVisible(true)
+            });
+
+            $.each(chart.series, function (key, value) {
+                if (key != itemIndex) {
+                    if (chart.series[key].visible) {
+                        chart.series[key].setVisible(false);
+                    } else {
+                        chart.series[key].setVisible(true);
+                    }
+                } else {
+                    chart.series[key].setVisible(true);
+                }
+            });
+        });
+
     }
 /*
 *
@@ -24,7 +61,9 @@ class Gauge extends Component {
                 type: 'solidgauge',
                 marginTop: 35,
             },
-
+            legend: {
+                enabled: false,
+            },
             title: {
                 text: this.name,
                 style: {
@@ -63,8 +102,10 @@ class Gauge extends Component {
                         enabled: false
                     },
                     linecap: 'round',
-                    stickyTracking: false
-                }
+                    stickyTracking: false,
+                    showInLegend: true
+                },
+
             },
 
             pane: {
@@ -117,15 +158,20 @@ class Gauge extends Component {
                 'zIndex': 10
             })
             .translate(190, 96)
+            .translate(190, 96)
             .add(this.series[2].group);
     };
     render () {
         return (
             <HighchartsReact
-                highcharts={Highcharts}
-                options={
-                this.options()}>
+                highcharts = {Highcharts}
+                options    = {this.options()}
+                callback   = {this.afterChartCreated}
+                chartRef   = {this.chartRef}
+
+            >
             </HighchartsReact>
+
         )}
 }
 

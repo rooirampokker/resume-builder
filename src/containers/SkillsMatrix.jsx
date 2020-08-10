@@ -30,15 +30,20 @@ class SkillsMatrix extends Component {
             let subDetailsObj  = this.details[sectionName];
             this.setSubSection(subDetailsObj, sectionName);
             return (
-                <div className={"col-sm-6 col-md-4 "+this.componentName+"Chart"}
-                     key = {"gauge-"+sectionName+key}>
-                    <Gauge
-                        name       = {sectionName}
-                        data       = {{trackData: this.trackData}}
-                        dataBG     = {this.trackBG}
-                        trackWidth = {this.trackWidth}/>
-                </div>
+                <>
+                    <div className={"col-sm-6 col-md-4 "+this.componentName+"Chart"}
+                         key = {"gauge-"+sectionName+key}
+                    >
+                        <Gauge
+                            name       = {sectionName}
+                            data       = {{trackData: this.trackData}}
+                            dataBG     = {this.trackBG}
+                            trackWidth = {this.trackWidth}/>
+                    </div>
+                    <div id={"customLegend_"+sectionName.replace(/\//g, '')}>
 
+                    </div>
+                </>
             );
         });
     }
@@ -107,8 +112,8 @@ class SkillsMatrix extends Component {
     render() {
         return (
             <div
-                className="tab-content"
-								id={this.componentName+"-container"}>
+                className = "tab-content"
+                id        ={this.componentName+"-container"}>
                 <div className="row">
                     {this.setSection()}
                 </div>

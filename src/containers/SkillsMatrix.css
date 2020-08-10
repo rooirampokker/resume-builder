@@ -16,5 +16,13 @@
 .gaugeTooltipValue {
   text-align: left;
   font-size: 30px;
+}
 
+.customLegend {
+  background: #c1c1c1;
+}
+.symbol {
+  height: 10px;
+  width: 10px;
+  border: 1px solid black;
 }
