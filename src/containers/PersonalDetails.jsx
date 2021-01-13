@@ -21,8 +21,8 @@ class PersonalDetails extends Component {
             let content = this.formatting.formatContent(this.details[value], 10);
             return (
                 <Row
-                    id       = {this.componentName+"-row-"+index}
-                    key      = {this.componentName+"-content-" + index}>
+                    id        = {this.componentName+"-row-"+index}
+                    key       = {this.componentName+"-content-" + index}>
                     {label}
                     {content}
                 </Row>);
@@ -33,8 +33,8 @@ class PersonalDetails extends Component {
     */
     render() {
         return (
-            <div className={this.componentName+" container"}
-                 id={this.componentName+"-container"}>
+            <div className = {this.componentName+" container personal "+this.componentName+"-container"}
+                 id        = {this.componentName+"-container"}>
                 {this.getItems()}
             </div>
         )

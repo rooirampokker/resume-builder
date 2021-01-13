@@ -23,11 +23,12 @@ class Formatting extends Component {
     *
      */
     formatContent(content, cols) {
+        let htmlContent = {__html: content};
         if (!Array.isArray(content)) {
             return (
                 <Col md={cols}
-                     className={"content"}>
-                    {content}
+                     className={"content"}
+                     dangerouslySetInnerHTML = {htmlContent}>
                 </Col>);
         } else {
             return (
