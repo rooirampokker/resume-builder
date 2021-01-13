@@ -1,10 +1,11 @@
 const Resume = {
+
     "heading": "Resume of Leslie Albrecht",
     "Personal Details": {
         "First Name": "Leslie",
         "Last Name": "Albrecht",
         "Phone Number": "+27827112573",
-        "Github": "https://github.com/rooirampokker",
+        "Github": "<a href='https://github.com/rooirampokker'>rooirampokker</a>",
         "Location": "Randburg, Gauteng"
     },
     "Skills Matrix": {
@@ -26,7 +27,7 @@ const Resume = {
             "Highcharts": 4.5,
             "HTML 5, CSS, ES5": 4.3,
             "Twitter Bootstrap": 4,
-            "Google Tag Manager and Analytics": 4,
+            "Google Tag Manager and Analytics": 3.8,
             "ES6": 3,
             "Foundation": 3,
             "Underscore/Lodash": 3,
@@ -52,11 +53,11 @@ const Resume = {
         },
         "DBMS": {
             "MySQL": 4,
-            "PostgreSQL": 3,
+            "PostgreSQL": 3.4,
             "MS SQL Server 2005": 2,
         },
         "CRM/CMS": {
-            "Wordpress": 5,
+            "Wordpress": 4.3,
             "SugarCRM/SuiteCRM": 4,
             "Joomla!": 3,
             "Drupal": 3,
@@ -70,9 +71,10 @@ const Resume = {
         },
         "Tools and Applications": {
             "Putty and WinSCP": 5,
-            "Submlime Text/Atom/Notepad++": 4,
+            "Sublime Text/Atom/Notepad++": 4,
+            "PHP Storm 2008": 3.8,
             "RubyMine": 4,
-            "Jira (Setup, administration and use)": 4,
+            "Jira (Setup, administration, upgrade and implementation)": 4,
             "Trello": 4,
             "Oracle VirtualBox": 4,
             "Asana": 3,
@@ -126,11 +128,21 @@ const Resume = {
         "Organisation": "Brave Digital",
         "Role": "Full Stack Developer",
         "From": "05-01-2019",
-        "To": "01-08-2020",
+        "To": "01-03-2021",
         "Projects": [
           {
               "Name": "Moola4Me",
               "Objective": "Database design and development and building of a Laravel-based API development for a bespoke survey system to be consumed by Flutter backend",
+          },
+          {
+              "Name": "Homecorp",
+              "Objective": "Scoping & delivering an eCommerce platform",
+              "URL": "<a href='http://homecorp.africa'>Home Corp</a>"
+          },
+          {
+              "Name": "Furnmart",
+              "Objective": "Scoping & delivering an eCommerce platform",
+              "URL": "<a href='http://furnmart.africa'>Furnmart</a>"
           },
           {
               "Name": "Frozen for you /By Word of Mouth",
@@ -139,13 +151,9 @@ const Resume = {
           {
             "Name": "Knool",
             "Objective": "Build and extend a recruiter/recruitment network platform based Wordpress Buddypress/Buddyboss",
-            "URL": "https://knool.com/"
+            "URL": "<a href='https://knool.com/'>knool</a>",
           },
-          {
-              "Name": "Homecorp",
-              "Objective": "Scoping & delivering an eCommerce platform",
-              "URL": "http://homecorp.africa"
-          },
+
           {
              "Name": "Trackmatic",
              "Objective": "Assist a 3rd party development team with component development of a react/node-based logistics management system or internal use",
@@ -153,7 +161,7 @@ const Resume = {
           {
              "Name": "Accenture Digital Innovation Tracker",
              "Objective": "Deliver a bespoke JS/JQuery system to serve, cache and easily navigate large volumes of articles and general content",
-             "URL": "https://insights.accenture.com/?mkto=DIT"
+             "URL": "<a href='https://insights.accenture.com/?mkto=DIT'>Accenture DIT</a>",
           }
 
         ],
@@ -168,9 +176,7 @@ const Resume = {
             "React",
             "Redux",
         ],
-        "Duties": [
 
-        ],
         "Reason for leaving": "Immigration"
       },
         {
@@ -195,10 +201,12 @@ const Resume = {
                 {
                     "Name": "LoadX",
                     "Objective": "To be part of a small team of developers responsible for delivering a matchmaking service between Shippers and Transporters, allowing Transporters to respond to bids created by Shippers to move cargo from origin to destination.",
+                    "URL": "<a href='https://www.loadx.co.za/'>LoadX</a>",
                 },
                 {
                     "Name": "MyTopDog",
                     "Objective": "To be part of a multi-national team responsible for developing a web backend for a mobile app which allows users to administer and complete checklists.",
+                    "URL": "<a href=https://www.mytopdog.co.za/'>MyTopDog</a>",
                 },
                 {
                     "Name": "Lobster Inc",
@@ -226,7 +234,7 @@ const Resume = {
                 "Jira",
                 "Github",
                 "Intercom Instant Messaging Integration",
-                "React",
+                "Reacts",
                 "Redux",
                 "ES6",
                 "NodeJS",
