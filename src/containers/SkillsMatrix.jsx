@@ -33,6 +33,7 @@ class SkillsMatrix extends Component {
                 <React.Fragment key={key}>
                     <div className={"col-sm-6 col-md-6 "+this.componentName+"Chart"}
                          key = {"gauge-"+sectionName+key}
+                         onMouseOut = {this.resetChart}
                     >
                         <Gauge
                             name       = {sectionName}
@@ -47,6 +48,10 @@ class SkillsMatrix extends Component {
                 </React.Fragment>
             );
         });
+    }
+
+    resetChart() {
+        console.log("resetting");
     }
 /*
 * Get constituents that make up each section (eg. Dev Ops {Jenkins, CircleCI, etc})

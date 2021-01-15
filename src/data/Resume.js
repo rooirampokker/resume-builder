@@ -5,7 +5,7 @@ const Resume = {
         "First Name": "Leslie",
         "Last Name": "Albrecht",
         "Phone Number": "+27827112573",
-        "Github": "<a href='https://github.com/rooirampokker'>rooirampokker</a>",
+        "Github": "<a target='blank' href='https://github.com/rooirampokker'>rooirampokker</a>",
         "Location": "Randburg, Gauteng"
     },
     "Skills Matrix": {
@@ -137,12 +137,12 @@ const Resume = {
           {
               "Name": "Homecorp",
               "Objective": "Scoping & delivering an eCommerce platform",
-              "URL": "<a href='http://homecorp.africa'>Home Corp</a>"
+              "URL": "<a target='blank' href='http://homecorp.africa'>Home Corp</a>"
           },
           {
               "Name": "Furnmart",
               "Objective": "Scoping & delivering an eCommerce platform",
-              "URL": "<a href='http://furnmart.africa'>Furnmart</a>"
+              "URL": "<a target='blank' href='http://furnmart.africa'>Furnmart</a>"
           },
           {
               "Name": "Frozen for you /By Word of Mouth",
@@ -151,7 +151,7 @@ const Resume = {
           {
             "Name": "Knool",
             "Objective": "Build and extend a recruiter/recruitment network platform based Wordpress Buddypress/Buddyboss",
-            "URL": "<a href='https://knool.com/'>knool</a>",
+            "URL": "<a target='blank' href='https://knool.com/'>knool</a>",
           },
 
           {
@@ -161,7 +161,7 @@ const Resume = {
           {
              "Name": "Accenture Digital Innovation Tracker",
              "Objective": "Deliver a bespoke JS/JQuery system to serve, cache and easily navigate large volumes of articles and general content",
-             "URL": "<a href='https://insights.accenture.com/?mkto=DIT'>Accenture DIT</a>",
+             "URL": "<a target='blank' href='https://insights.accenture.com/?mkto=DIT'>Accenture DIT</a>",
           }
 
         ],
@@ -201,12 +201,12 @@ const Resume = {
                 {
                     "Name": "LoadX",
                     "Objective": "To be part of a small team of developers responsible for delivering a matchmaking service between Shippers and Transporters, allowing Transporters to respond to bids created by Shippers to move cargo from origin to destination.",
-                    "URL": "<a href='https://www.loadx.co.za/'>LoadX</a>",
+                    "URL": "<a target='blank' href='https://www.loadx.co.za/'>LoadX</a>",
                 },
                 {
                     "Name": "MyTopDog",
                     "Objective": "To be part of a multi-national team responsible for developing a web backend for a mobile app which allows users to administer and complete checklists.",
-                    "URL": "<a href=https://www.mytopdog.co.za/'>MyTopDog</a>",
+                    "URL": "<a target='blank' href=https://www.mytopdog.co.za/'>MyTopDog</a>",
                 },
                 {
                     "Name": "Lobster Inc",

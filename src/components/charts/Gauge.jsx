@@ -17,20 +17,21 @@ class Gauge extends Component {
         this.trackWidth = props.trackWidth;
         this.highcharts = Highcharts;
         this.afterChartCreated = this.afterChartCreated.bind(this);
+        this.chartMouseOutCallback = this.chartMouseOutCallback();
     }
 /*
 
  */
     afterChartCreated(chart) {
-            var legendId = "customLegend_"+chart.index;
-
-            var legend = $('#'+legendId);
-            $.each(chart.series, function (j, data) {
-                var legendColor = data.userOptions.borderColor;
-                legend.append('<div class="item">' +
-                              '<div class="symbol" style="background-color:'+legendColor+'"></div>' +
-                              '<div class="legend-title" id="">' + data.name + '</div>' +
-                              '</div>');
+        var legendId = "customLegend_"+chart.index;
+        var legend = $('#'+legendId);
+        $.each(chart.series, function (j, data) {
+            var legendColor = data.userOptions.borderColor;
+            let legendClass = "chart_"+chart.index+"_item_"+data.index;
+            legend.append('<div id="'+legendClass+'" class="item">' +
+                          '<div class="symbol" style="background-color:'+legendColor+'"></div>' +
+                          '<div class="legend-title" id="">' + data.name + '</div>' +
+                          '</div>');
 
         });
 
@@ -44,11 +45,26 @@ class Gauge extends Component {
         });
     }
 
+    /**
+     *
+      */
+    chartMouseOutCallback() {
+        Highcharts.Chart.prototype.callbacks.push(function(chart) {
+            Highcharts.addEvent(chart.container, 'mouseleave', function() {
+                let legendContainer = $("#customLegend_"+chart.index);
+                legendContainer.children().each(function(index) {
+                    let activeLegend = $("#chart_"+chart.index+"_item_"+index);
+                    $(activeLegend).css({ 'opacity' : 1});
+                });
+            });
+        });
+    }
+
 
 /*
 *
  */
-    options() {
+    options(chartRef) {
         return {
             chart: {
                 type: 'solidgauge',
@@ -98,6 +114,39 @@ class Gauge extends Component {
                     stickyTracking: false,
                     showInLegend: true
                 },
+                series: {
+                    point: {
+                        events: {
+                            mouseOver: function(e) {
+                                let thisSeries      = this.series;
+                                let chartDOM        = $(thisSeries.chart);
+                                let chartIndex      = $(chartDOM)[0].index;
+                                let legendContainer = $("#customLegend_"+chartIndex);
+
+                                legendContainer.children().each(function(index) {
+                                    let activeLegend = $("#chart_"+chartIndex+"_item_"+thisSeries.index);
+                                    if (index == thisSeries.index) {
+                                        $(activeLegend).css({ 'opacity' : 1});
+                                    } else {
+                                        let inactiveLegend = $("#chart_"+chartIndex+"_item_"+index);
+                                        $(inactiveLegend).css({ 'opacity' : 0.3});
+                                    }
+                                });
+
+                                if( $('.highcharts-legend text').length )
+                                    $('.highcharts-legend text:nth-child('+(this.x+2)+')').trigger('mouseover');
+                                else
+                                    $('.highcharts-legend span:eq('+(this.x)+')').trigger('mouseover');
+                            },
+                            mouseOut: function() {
+                                let chartDOM = $(this.series.chart);
+                                let chartIndex = $(chartDOM)[0].index;
+                                let legend = $("#chart_"+chartIndex+"_item_"+this.series.index);
+                            }
+                        }
+                    }
+                }
+
 
             },
 
@@ -158,7 +207,7 @@ class Gauge extends Component {
         return (
             <HighchartsReact
                 highcharts = {Highcharts}
-                options    = {this.options()}
+                options    = {this.options(Highcharts)}
                 callback   = {this.afterChartCreated}
                 chartRef   = {this.chartRef}
 
