@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import Utils from '../utils/Utils';
 import Formatting from '../utils/Formatting';
-import InputRange from 'react-input-range';
 import {Row, Col} from 'react-bootstrap';
 import './WorkExperience.css';
-import ('react-input-range/lib/css/index.css');
 
 class WorkExperience extends Component {
     constructor(props) {
@@ -29,27 +27,27 @@ class WorkExperience extends Component {
     *
     */
     componentWillMount() {
-        this.initDateRange();
+        //this.initDateRange();
     }
     /*
     *
-    */
-    initDateRange() {
-        Object.keys(this.details).forEach((index) => {
-            this.fromDate     = this.utils.toTimeStamp(this.details[index].From);
-            this.toDate       = this.utils.toTimeStamp(this.details[index].To);
-            this.earliestDate = ((this.fromDate <= this.earliestDate) || this.earliestDate === 0) ? this.fromDate : this.earliestDate;
-            this.latestDate   = (this.toDate >= this.latestDate || this.latestDate === 0) ? this.toDate : this.latestDate;
-        });
-        this.setState({
-            value: {
-                min: this.latestDate - (31536000 * 1000) * this.initialRange,
-                max: this.latestDate,
-            },
-            latestDate: this.latestDate,
-            earliestDate: this.earliestDate
-        });
-    }
+    */ 
+    // initDateRange() {
+    //     Object.keys(this.details).forEach((index) => {
+    //         this.fromDate     = this.utils.toTimeStamp(this.details[index].From);
+    //         this.toDate       = this.utils.toTimeStamp(this.details[index].To);
+    //         this.earliestDate = ((this.fromDate <= this.earliestDate) || this.earliestDate === 0) ? this.fromDate : this.earliestDate;
+    //         this.latestDate   = (this.toDate >= this.latestDate || this.latestDate === 0) ? this.toDate : this.latestDate;
+    //     });
+    //     this.setState({
+    //         value: {
+    //             min: this.latestDate - (31536000 * 1000) * this.initialRange,
+    //             max: this.latestDate,
+    //         },
+    //         latestDate: this.latestDate,
+    //         earliestDate: this.earliestDate
+    //     });
+    // }
 
     /*
     *
